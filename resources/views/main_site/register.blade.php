@@ -29,7 +29,7 @@
 
                         <div class="form-outline mb-4">
                             <label class="form-label" for="email">Email</label>
-                            <input type="email" name="email" id="email" class="form-control form-control-lg" />
+                            <input type="email" name="email" id="email" class="form-control form-control-lg" value="{{old('email')}}" />
                             @error('email')
                             <div>
                                 <span class='text-danger'>{{$message}}</span>
@@ -40,7 +40,7 @@
 
                         <div class="form-outline mb-4">
                             <label class="form-label" for="phone">Phone</label>
-                            <input type="text" name="phone" id="phone" class="form-control form-control-lg" />
+                            <input type="text" name="phone" id="phone" class="form-control form-control-lg" value="{{old('phone')}}" />
                             @error('phone')
                             <div>
                                 <span class='text-danger'>{{$message}}</span>

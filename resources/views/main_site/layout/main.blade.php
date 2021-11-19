@@ -72,6 +72,16 @@
                              <li class="nav-item">
                                  <a class="nav-link" href="{{route('contact.index')}}">Contact us</a>
                              </li>
+
+                            @if (session()->get('Admin_login')== true)
+                            <li class="nav-item">
+                                 <a class="nav-link" href="{{route('user.profile')}}">Profile</a>
+                             </li>
+
+                             <li class="nav-item">
+                                 <a class="nav-link" href="{{route('user.logout')}}">Log Out</a>
+                             </li>
+                             @else
                              <li class="nav-item">
                                  <a class="nav-link" href="{{route('userLogin.index')}}">Log In</a>
                              </li>
@@ -79,7 +89,11 @@
                              <li class="nav-item">
                                  <a class="nav-link" href="{{route('userRegister.index')}}">Sign Up</a>
                              </li>
+                            @endif
 
+                            
+
+                           
 
                          </ul>
                          <form class="d-flex">

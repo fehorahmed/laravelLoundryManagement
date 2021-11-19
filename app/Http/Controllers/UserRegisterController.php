@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Models\UserRegister;
 
 class UserRegisterController extends Controller
@@ -17,11 +18,11 @@ class UserRegisterController extends Controller
 
         $request->validate([
             'name'=>'required|min:3',
-            'email'=>'required|email|unique:user_registers',
+            'email'=>'required|email:rfc,dns|unique:user_registers',
             'phone'=>'required|unique:user_registers',
             'address'=>'required',
             'password'=>'required|min:5',
-            'confirm_password'=>'required|min:5',
+            'confirm_password'=>'required|min:5|same:password',
         ],[
             'name.required'=>'Name field must not be empty',
             'name.min'=>'Name at least 3 character',
@@ -35,13 +36,15 @@ class UserRegisterController extends Controller
         ]);
        
         $model=new UserRegister;
-
+        $code=$request->post('password');
         $model->name=$request->post('name');
         $model->email=$request->post('email');
         $model->phone=$request->post('phone');
-        $model->password=$request->post('password');
+        $model->password=Hash::make($code);
         $model->address=$request->post('address');
         $model->save();
+
+        return redirect()->route('Home.index');
         
     }
 }
