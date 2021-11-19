@@ -1,0 +1,75 @@
+
+@media only screen and (max-width: 1200px) {
+
+    html{
+        font-size: 62.5%;
+    }
+
+}
+
+@media only screen and (max-width: 1024px) {
+
+    
+}
+
+@media only screen and (max-width: 992px) {
+
+    header{
+        height: 15rem;
+        padding: 1.5rem 0;
+    }
+    .logo-class{
+        text-align: center;
+    }
+    .logo{
+        float: none;
+        margin: 1rem 0;
+        
+    }
+    .top-nav{
+        height: 6rem;
+    }
+
+}
+@media only screen and (max-width: 768px) {
+
+    header{
+        height: 16rem;
+        padding: 1.5rem 0;
+    }
+
+    .top-nav{
+        float: none;
+    }
+    .footer{
+        padding: 2rem 0;
+        height: 60rem;
+    }
+    .last-f{
+        text-align: center;
+    }
+}
+@media only screen and (max-width: 576px) {
+
+    .top-nav{
+        display: none;
+
+    }
+    header{
+        height: 8rem;
+        padding: 1.5rem 0;
+    }
+    .last-f{
+        text-align: center;
+    }
+    .footer{
+        padding: 2rem 0;
+        height: 90rem;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .footer{
+        height: 100rem;
+    }
+}

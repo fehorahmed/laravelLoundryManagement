@@ -1,0 +1,489 @@
+/* =============== */
+/* BASIC SETUP */
+/* =============== */
+
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body {
+    
+    font-family: 'Titillium Web', sans-serif;
+}
+
+p{
+    font-size: 1.2rem;
+}
+
+
+
+h1{
+    font-size: 2.8rem;
+    font-weight: 800;
+}
+/* =============== */
+/* REUSEABLE STYLE */
+/* =============== */
+
+a{
+    text-decoration: none;
+}
+
+.rbtn{
+    background-color: white;
+    padding: 1.3rem 1.5rem;
+    border: .2rem solid blueviolet;
+    border-radius: 1.5rem;  
+}
+
+
+
+/* =============== */
+/* HEADER SECTION */
+/* =============== */
+
+header {
+    background: white;
+    height: 9rem;
+    display: block;
+
+}
+
+
+
+/* =============== */
+/* TOP NAV SECTION */
+/* =============== */
+
+.logo{
+    height:3rem;
+    width:auto;
+    margin-top:3rem;
+    float:left;
+}
+
+.top-nav{
+    background: black;
+    padding-top: 1rem;
+    float:right;
+    padding: 0rem 1rem;
+    position: relative;
+    text-transform: uppercase;
+}
+
+li{
+    color: cornsilk;
+    padding: 1rem;
+    font-size: 1.4rem;
+    display: inline-block;
+    
+}
+.top-nav i{
+    color: blanchedalmond;
+    font-size: 2rem;
+}
+.top-nav::after{
+    content: "CALL : +8801750637286";
+    color: blueviolet;
+    position: absolute;
+    top: 6rem;
+    right: 5rem;
+    font-weight: 600;
+    font-size: 2.2rem;
+}
+
+/* =============== */
+/* END TOP NAV SECTION */
+/* =============== */
+
+
+/* =============== */
+/* MAIN NAV SECTION */
+/* =============== */
+
+
+.main-nav .navbar-light .navbar-nav .nav-link {
+    color: white;
+}
+.navbar-toggler {
+    padding: .4rem .75rem;
+}
+
+
+
+/* =============== */
+/* HEADER COVER SECTION */
+/* =============== */
+
+.header-cover{
+    margin-top: 1rem;
+    height: 54rem ;
+   
+    background-position: center;
+    position: relative;
+}
+
+.header-cover{
+    
+   background: url(../img/cover-1.png);
+   background-attachment: fixed;
+   background-size: cover;
+   
+}
+
+.cover-text{
+    position: absolute;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.header-p{
+    font-weight: 700;
+    color: white;
+    font-size: 3rem;
+    text-shadow: .5rem .5rem 1rem red;
+}
+
+
+.cover-p{
+    margin-top: 3rem;
+}
+
+.book,.contact{
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+.contact{
+margin-left: 2.2rem;
+}
+
+.rbtn a{
+    padding: 1rem 1rem;
+    color: black;
+
+}
+
+.rbtn:hover, .btn a:hover{
+    color: white;
+    background-color: blueviolet;
+    
+}
+
+/* =============== */
+/* HEADER END */
+/* =============== */
+
+
+/* =============== */
+/* HOW WORK SECTION */
+/* =============== */
+
+.how-work{
+    height: 59.2rem;
+    background: white;
+}
+.heading{
+    padding: 1.5rem 0rem;
+    text-align: center;
+    
+}
+.work-box{
+    background-color: #f1f1f1;
+    height: 26rem;
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+}
+.icon-redius i{
+    color: blueviolet;
+    background-color: white;
+    font-size: 4rem;
+    margin-top: 30%;
+    padding: 4rem;
+    border: .1rem solid #c8dbe8;
+    border-radius: 100%;
+    box-shadow: 0rem 0rem 2rem #c8dbe8;  
+}
+
+
+.para{
+    margin-top: 1rem;
+
+}
+h3{
+    font-size: 1.6rem;
+}
+
+.para p{
+    margin: 1rem 1.5rem;
+    padding-bottom: 1.5rem;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+.main-box{
+    text-align: center;
+    box-shadow: 0rem 0rem .5rem violet;
+    display: inline-block;
+    
+}
+
+/* =============== */
+/* END HOW WORK */
+/* =============== */
+
+
+/* =============== */
+/* SERVICE SECTION */
+/* =============== */
+
+.service{
+    padding-top: 5rem;
+    background:url('../css/img/Service-bg.png');
+    background-position: top;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100.12rem;
+    
+}
+.service h1{
+    color: white;
+}
+
+.service-box{
+    border-radius: .5rem;
+    text-align: center;
+    display: block;
+    padding: 1.1rem;
+    background: white;
+}
+
+.service img{
+    width: 100%;
+}
+.service h4{
+    padding: 1rem 1rem;
+}
+.service p{
+    padding-bottom: 1rem;
+}
+
+.service .martop{
+    margin-top: 1.5rem;
+}
+.service-btn{
+    padding: 1rem 2rem;
+}
+
+/* =============== */
+/* END SERVICE SECTION */
+/* =============== */
+
+/* =============== */
+/* GET-START SECTION */
+/* =============== */
+
+
+.get-start{
+    padding: 2rem 0rem;
+    height: 37rem;
+    text-align: center;
+}
+.get-start h1{
+    padding-bottom: 1rem;
+}
+.banar{
+    margin-top: 1rem;
+    height: 15rem;
+    background: url(../css/img/banner.png);
+
+    
+    
+}
+.banar-a,.banar-b{
+    display: inline-flex;
+    margin-top:8%;
+    text-align: left;
+    margin-left: 2rem;
+}
+.banar-a i,.banar-b i{
+    font-size: 4rem;
+    color: white;
+    margin-right: 2rem;
+}
+
+.banar-p{
+    font-size: 3.5rem;
+    font-weight: 100;
+    color: white;   
+    line-height: 3rem;
+}
+
+.banar span{
+    font-size: 2rem;
+    font-weight: 700;
+    
+}
+
+
+/* =============== */
+/* CHOOSE SECTION */
+/* =============== */
+
+
+.choose{
+    background: url('../css/img/choose-bg.png');
+    background-size: cover;
+    height: 52rem;
+}
+.left-c{
+    padding-top: 8rem;
+}
+.left-c h2, .right-c h2{
+    font-size: 2.5rem;
+}
+
+.c-25{
+    font-size: 2.8rem;
+    color: cadetblue; 
+}
+.c-p{
+    color: cadetblue; 
+    font-size: 1.2rem;
+    font-weight: 100;
+}
+.choose input{
+    font-size: 1.5rem;
+}
+.c-f-g{
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 1rem 2rem;
+}
+.right-c h2{
+    margin-left: 4rem;
+    font-weight: 800;
+    padding-bottom: 2rem;
+    
+}
+.right-c li{
+color: black;
+display: list-item;
+
+}
+.c-ul li{
+    font-size: 1.8rem;
+    margin: 0rem ;
+    margin-left: 6rem;
+    list-style: none;
+}
+.c-ul li i{
+    font-size: 2rem;
+    margin: 0rem 1rem;
+    color: green;
+}
+
+
+/* =============== */
+/* TESTIMONIAL SECTION */
+/* =============== */
+
+.testi-m{
+    margin: 6rem 0rem;
+    padding: 2rem 0;
+    box-shadow: 0rem 0rem .3rem blueviolet;
+}
+
+.testi-img img{
+    border-radius: 100%;
+    height: 20rem;
+    width: 20rem;
+    box-shadow: 0rem 0rem 2rem #f1f151;
+}
+.testi-img{
+    display:inline-flex;
+   
+}
+.testi-p{
+    background: #f1f1f1;
+}
+.testi-h h5{
+    margin-top: -2rem;
+    color: blueviolet;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+/* =============== */
+/* FOOTER SECTION */
+/* =============== */
+
+.footer{
+ background: url('../css/img/footer-bg.png');
+ background-size: cover;
+ padding: 7rem 0rem;
+ height: 46.6rem;
+ color: white;
+
+}
+.footer h4{
+    font-weight: 700;
+    font-size: 1.8rem;
+    padding-bottom: 1rem;
+}
+.footer p{
+    margin-right: 1rem;
+}
+.footer i{
+    font-size: 1.5rem;
+    padding: 1rem;
+    background: white;
+    color: blueviolet;
+    border-radius: 10%;
+
+}
+
+.footer ul{
+    padding-left: 0;
+    line-height: 1.5rem;
+}
+.footer ul li{
+    color: white;
+    display: list-item;
+    list-style: none;
+}
+
+.footer ul li a{
+    color: white;
+}
+
+.f-h{
+    font-weight: 100;
+    padding-bottom: 1rem;
+}
+.footer img{
+    padding: 1.5rem 0;
+}
+.last-f{
+
+    background-color: black;
+}
+
+
+
+.bg-image-vertical {
+    position: relative;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: auto 100%;
+  }
+  
+ 
