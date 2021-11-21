@@ -14,11 +14,12 @@ class UserRegisterController extends Controller
 
 
     public function store(Request $request){
-
+        
+        
 
         $request->validate([
             'name'=>'required|min:3',
-            'email'=>'required|email:rfc,dns|unique:user_registers',
+            'email'=>'required|email|unique:user_registers',
             'phone'=>'required|unique:user_registers',
             'address'=>'required',
             'password'=>'required|min:5',

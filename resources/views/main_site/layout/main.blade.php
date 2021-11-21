@@ -10,7 +10,7 @@
                  <div class="col-xl-3 col-lg-3 col-sm-12 ">
                      <div class="logo-class">
                          <a href="index.html">
-                             <img src="{{asset('font_assets/resources/img/logo.png')}}" alt="Loundry Logo" class="logo">
+                             <img src="{{asset('font_assets/resources/img/logo-1.jpg')}}" alt="Loundry Logo" class="logo">
                          </a>
                      </div>
                  </div>
@@ -48,7 +48,7 @@
                          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll cus-ul"
                              style="--bs-scroll-height: 100px;">
                              <li class="nav-item">
-                                 <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                                 <a class="nav-link active" aria-current="page" href="{{route('Home.index')}}">Home</a>
                              </li>
                              <li class="nav-item">
                                  <a class="nav-link" href="#">About us</a>

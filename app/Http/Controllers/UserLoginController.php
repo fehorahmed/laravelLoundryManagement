@@ -15,7 +15,7 @@ class UserLoginController extends Controller
     public function auth(Request $request)
     {  
         $request->validate([
-            'email'=>'required|email:rfc,dns',
+            'email'=>'required|email',
             'password'=>'required'
         ]);
         $email= $request->post('email');

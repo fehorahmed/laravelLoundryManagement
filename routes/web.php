@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\admin\AdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GalleryController;
@@ -9,6 +9,8 @@ use App\Http\Controllers\UserRegisterController;
 
 
 Route::get('/',[HomeController::class,'index'])->name('Home.index');
+
+Route::get('/adminhome',[AdminController::class,'index']);
 
 Route::get('/Gallery',[GalleryController::class,'index'])->name('gallery.index');
 
