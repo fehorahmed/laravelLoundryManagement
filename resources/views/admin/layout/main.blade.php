@@ -54,7 +54,7 @@
                     <li class="side-nav-title side-nav-item">Delivery Control</li>
 
                     <li class="side-nav-item">
-                        <a href="apps-calendar.html" class="side-nav-link">
+                        <a href="{{route('admin.deliveryman')}}" class="side-nav-link">
                             <i class="uil-calender"></i>
                             <span> Add Delivery Man </span>
                         </a>
@@ -341,7 +341,7 @@
                                     <img src="{{asset('admin_assets/images/users/avatar-1.jpg')}}" alt="user-image" class="rounded-circle">
                                 </span>
                                 <span>
-                                    <span class="account-user-name">Soeng Souy</span>
+                                    <span class="account-user-name">{{session('name')}}</span>
                                     <span class="account-position">Founder</span>
                                 </span>
                             </a>
@@ -376,7 +376,7 @@
                                 </a>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <a href="{{route('admin.logout')}}" class="dropdown-item notify-item">
                                     <i class="mdi mdi-logout me-1"></i>
                                     <span>Logout</span>
                                 </a>

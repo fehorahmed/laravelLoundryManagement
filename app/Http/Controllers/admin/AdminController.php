@@ -7,13 +7,19 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class AdminController extends Controller
 {
     public function index()
     {
+        if(session()->has('email')){
+            return redirect()->route('admin.dashboard');
+        }else{
+            return view('admin.adminlogin');
+        }
 
-        return view('admin.adminlogin');
+        
     }
 
     public function auth(Request $request)
@@ -50,5 +56,11 @@ class AdminController extends Controller
     public function home(){
         
         return view('admin.index');
+    }
+
+    public function logout(){
+        Session::flush();
+        return redirect()->route('adminlogin.index');
+
     }
 }

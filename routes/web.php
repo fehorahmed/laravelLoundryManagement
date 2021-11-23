@@ -1,12 +1,14 @@
 <?php
 
 use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\DeliveryManController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\UserLoginController;
 use App\Http\Controllers\UserRegisterController;
+
 
 
 Route::get('/', [HomeController::class, 'index'])->name('Home.index');
@@ -18,6 +20,12 @@ Route::post('/admin', [AdminController::class, 'auth'])->name('adminlogin.auth')
 
 Route::group(['middleware' => 'adminmiddleware'], function () {
     Route::get('/adminhome', [AdminController::class, 'home'])->name('admin.dashboard');
+    Route::get('/adminlogout', [AdminController::class, 'logout'])->name('admin.logout');
+
+// Delivery Man
+    Route::get('/admindeliveryman',[DeliveryManController::class,'index'])->name('admin.deliveryman');
+
+
 });
 
 
