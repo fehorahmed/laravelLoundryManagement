@@ -12,6 +12,8 @@
 
         <!-- third party css -->
         <link href="{{asset('admin_assets/css/vendor/jquery-jvectormap-1.2.2.css')}}" rel="stylesheet" type="text/css">
+
+
         <!-- third party css end -->
 
         <!-- App css -->
@@ -39,6 +41,8 @@
         <script src="{{asset('admin_assets/js/vendor/apexcharts.min.js')}}"></script>
         <script src="{{asset('admin_assets/js/vendor/jquery-jvectormap-1.2.2.min.js')}}"></script>
         <script src="{{asset('admin_assets/js/vendor/jquery-jvectormap-world-mill-en.js')}}"></script>
+
+        
         <!-- third party js ends -->
 
         <!-- demo app -->

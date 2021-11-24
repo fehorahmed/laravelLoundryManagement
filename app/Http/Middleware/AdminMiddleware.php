@@ -16,7 +16,7 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(session()->has('email')){
+        if(session()->has('email') && session()->has('name')){
 
             
             
