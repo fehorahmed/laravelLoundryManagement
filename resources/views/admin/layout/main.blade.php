@@ -115,7 +115,7 @@
                     </li>
 
                     <li class="side-nav-item">
-                        <a href="landing.html" target="_blank" class="side-nav-link">
+                        <a href="{{route('Home.index')}}" target="_blank" class="side-nav-link">
                             <i class="uil-globe"></i>
                             <span class="badge bg-secondary text-light float-end">New</span>
                             <span> Landing </span>

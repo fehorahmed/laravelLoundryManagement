@@ -34,6 +34,12 @@
 
                         <div class="card">
                             <h5 class="card-header">Featured</h5>
+                            <div class="row">
+                              <div class="col-3 offset-9">
+                                <a href="{{route('admin.managedeliveryman')}}"><button class="btn btn-primary">Add Delivery Man</button></a>
+                              </div>
+                            </div>
+                            
                             <div class="card-body">
                               <table class="table table-striped">
                                 <thead>

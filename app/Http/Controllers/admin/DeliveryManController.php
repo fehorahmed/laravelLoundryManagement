@@ -11,4 +11,13 @@ class DeliveryManController extends Controller
         
         return view('admin.deliveryMan');
     }
+
+    public function add(){
+        return view('admin.manageDeliveryMan');
+    }
+
+
+
+
+
 }

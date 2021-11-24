@@ -24,6 +24,7 @@ Route::group(['middleware' => 'adminmiddleware'], function () {
 
 // Delivery Man
     Route::get('/admindeliveryman',[DeliveryManController::class,'index'])->name('admin.deliveryman');
+    Route::get('/admindeliveryman/manage',[DeliveryManController::class,'add'])->name('admin.managedeliveryman');
 
 
 });
