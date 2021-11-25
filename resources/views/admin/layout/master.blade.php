@@ -15,7 +15,10 @@
 
 
         <!-- third party css end -->
-
+        <link href="{{asset('admin_assets/css/vendor/dataTables.bootstrap5.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{asset('admin_assets/css/vendor/responsive.bootstrap5.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{asset('admin_assets/css/vendor/buttons.bootstrap5.css')}}" rel="stylesheet" type="text/css">
+        <link href="{{asset('admin_assets/css/vendor/select.bootstrap5.css')}}" rel="stylesheet" type="text/css">
         <!-- App css -->
         <link href="{{asset('admin_assets/css/icons.min.css')}}" rel="stylesheet" type="text/css">
         <link href="{{asset('admin_assets/css/app.min.css')}}" rel="stylesheet" type="text/css" id="light-style">
@@ -44,9 +47,22 @@
 
         
         <!-- third party js ends -->
-
+        <script src="{{asset('admin_assets/js/vendor/jquery.dataTables.min.js')}}"></script>
+        <script src="{{asset('admin_assetsjs/vendor/dataTables.bootstrap5.j')}}s"></script>
+        <script src="{{asset('admin_assets/js/vendor/dataTables.responsive.min.js')}}"></script>
+        <script src="{{asset('admin_assets/js/vendor/responsive.bootstrap5.min.js')}}"></script>
+        <script src="{{asset('admin_assets/js/vendor/dataTables.buttons.min.js')}}"></script>
+        <script src="{{asset('admin_assets/js/vendor/buttons.bootstrap5.min.js')}}"></script>
+        <script src="{{asset('admin_assets/js/vendor/buttons.html5.min.js')}}"></script>
+        <script src="{{asset('admin_assets/js/vendor/buttons.flash.min.js')}}"></script>
+        <script src="{{asset('admin_assets/js/vendor/buttons.print.min.js')}}"></script>
+        <script src="{{asset('admin_assets/js/vendor/dataTables.keyTable.min.js')}}"></script>
+        <script src="{{asset('admin_assets/js/vendor/dataTables.select.min.js')}}"></script>
         <!-- demo app -->
         <script src="{{asset('admin_assets/js/pages/demo.dashboard.js')}}"></script>
         <!-- end demo js-->
+        
+   
+    @yield('script')
     </body>
 </html>

@@ -33,7 +33,7 @@
     </div>
 
     <div class="card">
-        <h5 class="card-header">Featured</h5>
+        <h5 class="card-header">Edit Page</h5>
         <div class="row">
             <div class="col-3 offset-9 ">
                 <a href="{{ route('admin.deliveryman') }}"><button class="btn btn-primary">Back</button></a>
@@ -43,11 +43,11 @@
         <div class="card-body">
             <div class="row">
                 <div class="col-12 col-md-6">
-                    <form action="{{route('admin.managedeliverymaneditprocess')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('admin.deliveryman.editprocess')}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="name" class="form-label">Full Name</label>
-                            <input type="text" id="name" class="form-control" value="" name="name">
+                            <input type="text" id="name" class="form-control" value="{{$data[0]->name}}" name="name">
                         </div>
                         @error('name')
                         <div>
@@ -56,7 +56,7 @@
                         @enderror
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
-                            <input type="email" id="email" class="form-control" value="" name="email">
+                            <input type="email" id="email" class="form-control" value="{{$data[0]->email}}" name="email">
 
                         </div>
                         @error('email')
@@ -64,29 +64,10 @@
                             <span class='text-danger'>{{$message}}</span>
                         </div>
                         @enderror
-                        <div class="mb-3">
-                            <label for="password" class="form-label">Password</label>
-                            <input type="password" id="password" class="form-control" name="password">
-                        </div>
-                        @error('password')
-                        <div>
-                            <span class='text-danger'>{{$message}}</span>
-                        </div>
-                        @enderror
-
-                        <div class="mb-3">
-                            <label for="confirm_password" class="form-label">Confirm Password</label>
-                            <input type="password" id="confirm_password" class="form-control" name="confirm_password">
-                        </div>
-                        @error('confirm_password')
-                        <div>
-                            <span class='text-danger'>{{$message}}</span>
-                        </div>
-                        @enderror
-
+                        
                         <div class="mb-3">
                             <label for="phone" class="form-label">Phone</label>
-                            <input type="number" id="phone" value="{{old('phone')}}" class="form-control" name="phone">
+                            <input type="number" id="phone" value="{{$data[0]->phone}}" class="form-control" name="phone">
                         </div>
                         @error('phone')
                         <div>
@@ -95,7 +76,7 @@
                         @enderror
                         <div class="mb-3">
                             <label for="nidnumber" class="form-label">NID Number</label>
-                            <input type="number" id="nidnumber" value="{{old('nidnumber')}}" class="form-control" name="nidnumber">
+                            <input type="number" id="nidnumber" value="{{$data[0]->nidnumber}}" class="form-control" name="nidnumber">
                         </div>
                         @error('nidnumber')
                         <div>
@@ -104,7 +85,7 @@
                         @enderror
                         <div class="mb-3">
                             <label for="address" class="form-label">Address</label>
-                            <input type="text" class="form-control" id="address" value="{{old('address')}}" name="address">
+                            <input type="text" class="form-control" id="address" value="{{$data[0]->address}}" name="address">
                         </div>
                         @error('address')
                         <div>
@@ -113,7 +94,7 @@
                         @enderror
                         <div class="mb-3">
                             <label for="Status" class="form-label">Status</label>
-                            <input type="number" id="Status" value="{{old('status')}}" class="form-control" name="status">
+                            <input type="number" id="Status" value="{{$data[0]->status}}" class="form-control" name="status">
                         </div>
                         @error('status')
                         <div>
@@ -121,6 +102,7 @@
                         </div>
                         @enderror
 
+                        <input type="hidden" name="id" value="{{$data[0]->id}}">
                         <button type="submit" class="btn btn-primary">Update</button>
                     </form>
                 </div>

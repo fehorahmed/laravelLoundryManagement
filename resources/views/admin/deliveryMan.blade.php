@@ -50,9 +50,10 @@
     </div>
 
     <div class="card-body">
-      <table class="table table-striped">
+      <table class="table table-striped" id="table">
         <thead>
           <tr>
+          
             <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
@@ -60,24 +61,7 @@
             <th scope="col">Action</th>
           </tr>
         </thead>
-        <tbody>
-          <?php
-          $i = 1;
-          ?>
-          
-          @foreach($data as $datas)
-          <tr>
-            <th scope="row">{{$i++}}</td>
-            <td>{{$datas->name}}</td>
-            <td>{{$datas->email}}</td>
-            <td>{{$datas->phone}}</td>
-            <td>
-              <a href="" class="btn btn-primary">Edit</a>
-              <a href="" class="btn btn-primary">Delete</a>
-            </td>
-          </tr>
-          @endforeach
-        </tbody>
+      
       </table>
     </div>
   </div>
@@ -90,3 +74,25 @@
 
 
 @stop
+@section('script')
+     
+<script type="text/javascript">
+  $(function () {
+    
+    var table = $('#table').DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: "{{ route('admin.deliveryman.datatable') }}",
+        columns: [
+            {data: 'id', name: 'id'},
+            {data: 'name', name: 'name'},
+          
+            {data: 'email', name: 'email'},
+            {data: 'phone', name: 'phone'},
+            {data: 'action', name: 'action', orderable: false, searchable: false},
+        ]
+    });
+    
+  });
+</script>
+@endsection
