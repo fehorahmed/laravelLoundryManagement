@@ -26,6 +26,8 @@ Route::group(['middleware' => 'adminmiddleware'], function () {
     Route::get('/admindeliveryman',[DeliveryManController::class,'index'])->name('admin.deliveryman');
     Route::get('/admindeliveryman/manage',[DeliveryManController::class,'add'])->name('admin.managedeliveryman');
     Route::post('/admindeliveryman/manage',[DeliveryManController::class,'store'])->name('admin.managedeliverymanstore');
+    Route::get('/admindeliveryman/edit',[DeliveryManController::class,'edit'])->name('admin.managedeliverymanedit');
+    Route::get('/admindeliveryman/edit',[DeliveryManController::class,'editprocess'])->name('admin.managedeliverymaneditprocess');
 
 
 });
