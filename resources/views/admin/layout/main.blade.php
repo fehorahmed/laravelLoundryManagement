@@ -347,7 +347,7 @@
                                     <img src="{{asset('admin_assets/images/users/avatar-1.jpg')}}" alt="user-image" class="rounded-circle">
                                 </span>
                                 <span>
-                                    <span class="account-user-name">{{session('name')}}</span>
+                                    <span class="account-user-name">{{session('admin_name')}}</span>
                                     <span class="account-position">Founder</span>
                                 </span>
                             </a>

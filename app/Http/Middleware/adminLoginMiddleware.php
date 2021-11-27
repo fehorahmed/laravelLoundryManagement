@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class AdminMiddleware
+class adminLoginMiddleware
 {
     /**
      * Handle an incoming request.
@@ -17,14 +17,8 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next)
     {
         if(session()->has('admin_email') && session()->has('admin_name')){
-
-            
-            
-            //view('adminlogin.index');
-        }else{
-            return redirect()->route('adminlogin.index');
+            return redirect()->route('admin.dashboard');
         }
-
         return $next($request);
     }
 }

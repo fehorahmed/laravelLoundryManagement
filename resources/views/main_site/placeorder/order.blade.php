@@ -17,8 +17,15 @@
 
                         <div class="form-outline mb-4">
                             <label class="form-label" for="productname">Product Name</label>
-                            <input type="text" name="productname" id="productname" value="{{old('productname')}}"
-                                class="form-control form-control-lg" />
+
+                            <select class="form-select" name="productname" id="productname" aria-label="Default select example">
+                                <option value="" >Open this select menu</option>
+                                @foreach($products as $product)
+                                <option value="{{$product->id.'-'.$product->price}}">{{$product->name}}</option>
+                                @endforeach
+
+                            </select>
+
                             @error('productname')
                             <div>
                                 <span class='text-danger'>{{$message}}</span>
@@ -39,16 +46,15 @@
                         </div>
 
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="phone">Total Price</label>
-                            <input disabled type="number" name="totalprice" id="totalprice" class="form-control form-control-lg" value="{{old('totalprice')}}" />
-                            
+                            <label class="form-label" for="totalprice">Total Price</label>
+                            <input readonly type="text" name="totalprice" id="totalprice" class="form-control form-control-lg" value="15" />
+
 
                         </div>
 
                         <div class="form-outline mb-4">
                             <label class="form-label" for="address">Address</label>
-                            <textarea disabled class="form-control form-control-lg" name="address" id="address" cols="30"
-                                rows="5"></textarea>
+                            <textarea disabled class="form-control form-control-lg" name="address" id="address" cols="30" rows="5"></textarea>
                             @error('address')
                             <div>
                                 <span class='text-danger'>{{$message}}</span>
@@ -57,13 +63,13 @@
 
                         </div>
 
-                        
+
                         <div class="form-outline mb-4">
                             <a class="btn btn-secondary" href=""></a>
                         </div>
 
                         <div class="pt-1 mb-4">
-                            <button class="btn btn-info btn-lg btn-block" type="submit">Order</button>
+                            <button id="button" class="btn btn-info btn-lg btn-block" type="submit">Order</button>
                         </div>
 
                     </form>
@@ -76,3 +82,21 @@
     </div>
 </section>
 @stop
+
+@section('script')
+
+<script>
+
+$(document).ready(function(){
+   
+    
+    $("#productname").change(function(){
+        var selectedName = $(this).val();
+        var arr= selectedName.split('-');
+       // alert("You have selected the country - " + arr);
+        $('#totalprice').val(arr['1']);
+    });
+});
+</script>
+
+@endsection

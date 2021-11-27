@@ -3,7 +3,16 @@
 @section('main_content')
 
 <div class='row pt-5 pb-5'>
+
+
     <div class="col-sm-5">
+        @if(session('message'))
+
+
+        <div class="alert alert-info bg-info text-white border-0" role="alert">
+            <strong>{{session('message')}}</strong>
+        </div>
+        @endif
         <h3>My Profile</h3>
         <table class="table table-striped">
 
@@ -12,7 +21,7 @@
                     Name:
                 </td>
                 <td>
-                    {{session()->get('Admin_name')}}
+                    {{session()->get('user_name')}}
                 </td>
             </tr>
 
@@ -21,7 +30,7 @@
                     Email:
                 </td>
                 <td>
-                {{session()->get('Admin_email')}}
+                    {{session()->get('user_email')}}
                 </td>
             </tr>
 
@@ -30,7 +39,7 @@
                     Phone:
                 </td>
                 <td>
-                {{session()->get('Admin_phone')}}
+                    {{session()->get('user_phone')}}
                 </td>
             </tr>
 
@@ -39,7 +48,7 @@
                     Address:
                 </td>
                 <td>
-                {{session()->get('Admin_address')}}
+                    {{session()->get('user_address')}}
                 </td>
             </tr>
 

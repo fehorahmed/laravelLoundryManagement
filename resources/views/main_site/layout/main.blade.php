@@ -73,7 +73,7 @@
                                  <a class="nav-link" href="{{route('contact.index')}}">Contact us</a>
                              </li>
 
-                            @if (session()->get('Admin_login')== true)
+                            @if (session()->get('user_login')== true)
                             <li class="nav-item">
                                  <a class="nav-link" href="{{route('user.profile')}}">Profile</a>
                              </li>

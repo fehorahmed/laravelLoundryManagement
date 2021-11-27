@@ -26,12 +26,12 @@ class UserLoginController extends Controller
                        ->first();
         if($result){
             if(Hash::check($password,$result->password)){
-                $request->session()->put("Admin_login",true);
-                $request->session()->put("Admin_id",$result->id);
-                $request->session()->put("Admin_email",$result->email);
-                $request->session()->put("Admin_phone",$result->phone);
-                $request->session()->put("Admin_name",$result->name);            
-                $request->session()->put("Admin_address",$result->address);            
+                $request->session()->put("user_login",true);
+                $request->session()->put("user_id",$result->id);
+                $request->session()->put("user_email",$result->email);
+                $request->session()->put("user_phone",$result->phone);
+                $request->session()->put("user_name",$result->name);            
+                $request->session()->put("user_address",$result->address);            
                 return redirect('/');
             }else{
                 Session::flash('message','Incorrect password!');
@@ -45,12 +45,12 @@ class UserLoginController extends Controller
 
 
     public function logout(){
-        session()->forget('Admin_login');
-        session()->forget('Admin_id');
-        session()->forget('Admin_name');
-        session()->forget('Admin_email');
-        session()->forget('Admin_phone');
-        session()->forget('Admin_address');
+        session()->forget('user_id');
+        session()->forget('user_login');
+        session()->forget('user_name');
+        session()->forget('user_email');
+        session()->forget('user_phone');
+        session()->forget('user_address');
         return redirect()->route('Home.index');
     }
 

@@ -17,7 +17,7 @@ Route::get('/', [HomeController::class, 'index'])->name('Home.index');
 
 //ADMIN SECTION
 
-Route::get('/admin', [AdminController::class, 'index'])->name('adminlogin.index');
+Route::get('/admin', [AdminController::class, 'index'])->name('adminlogin.index')->middleware('adminloginMiddleware');
 Route::post('/admin', [AdminController::class, 'auth'])->name('adminlogin.auth');
 
 Route::group(['middleware' => 'adminmiddleware'], function () {
@@ -45,7 +45,6 @@ Route::group(['middleware' => 'adminmiddleware'], function () {
 
 //Customer Order Section
 
-Route::get('/Order', [PlaceOrderController::class,'index'])->name('order.index');
 
 //----->>>>
 
@@ -53,12 +52,17 @@ Route::get('/Gallery', [GalleryController::class, 'index'])->name('gallery.index
 
 Route::get('/ContactUs', [ContactUsController::class, 'index'])->name('contact.index');
 
-Route::get('/Login', [UserLoginController::class, 'index'])->name('userLogin.index');
 
 Route::get('/Logout', [UserLoginController::class, 'logout'])->name('user.logout');
 
-Route::get('/User/profile', [UserLoginController::class, 'profile'])->name('user.profile');
 
+// Redirect to Log in...
+Route::get('/User/profile', [UserLoginController::class, 'profile'])->name('user.profile')->middleware('userMiddleware');
+
+Route::get('/Order', [PlaceOrderController::class,'index'])->name('order.index')->middleware('userMiddleware');
+
+// userloginMiddleware For redirect profile, if user login.
+Route::get('/Login', [UserLoginController::class, 'index'])->name('userLogin.index')->middleware('userloginMiddleware');
 Route::post('/Login', [UserLoginController::class, 'auth'])->name('userLogin.auth');
 
 Route::get('/SignUp', [UserRegisterController::class, 'index'])->name('userRegister.index');

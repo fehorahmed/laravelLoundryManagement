@@ -31,11 +31,13 @@
 
 
     <!--JS SCRIPT-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{{asset('font_assets/vendor/js/html5shiv.min.js')}}"></script>
     <script src="{{asset('font_assets/vendor/js/respond.min.js')}}"></script>
     <script src="{{asset('font_assets/vendor/js/selectivizr-min.js')}}"></script>
     <script src="{{asset('font_assets/vendor/js/bootstrap.min.js')}}"></script>
 
+    @yield('script')
 </body>
 
 </html>
