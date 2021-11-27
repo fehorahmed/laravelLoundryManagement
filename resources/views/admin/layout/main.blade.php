@@ -60,6 +60,12 @@
                         </a>
                     </li>
 
+                    <li class="side-nav-item">
+                        <a href="{{route('admin.serviceproduct')}}" class="side-nav-link">
+                            <i class="uil-calender"></i>
+                            <span> Add Service Product </span>
+                        </a>
+                    </li>
                     
 
                     <li class="side-nav-item">

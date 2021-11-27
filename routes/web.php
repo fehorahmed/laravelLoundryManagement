@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\DeliveryManController;
+use App\Http\Controllers\admin\ServiceProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\PlaceOrderController;
 use App\Http\Controllers\UserLoginController;
 use App\Http\Controllers\UserRegisterController;
 
@@ -30,12 +32,22 @@ Route::group(['middleware' => 'adminmiddleware'], function () {
     Route::post('/admindeliveryman/edit',[DeliveryManController::class,'editprocess'])->name('admin.deliveryman.editprocess');
     Route::get('deliveryman.datatable',[DeliveryManController::class,'deliveryManDatatable'])->name('admin.deliveryman.datatable');
 
+    //SERVICE PRODUCT
+    Route::get('/admin/serviceproduct',[ServiceProductController::class,'index'])->name('admin.serviceproduct');
+    Route::get('/admin/serviceproduct/manage',[ServiceProductController::class,'add'])->name('admin.manage.serviceproduct');
+    Route::post('/admin/serviceproduct/manage',[ServiceProductController::class,'store'])->name('admin.manage.serviceproduct.store');
+    Route::get('/admin/serviceproduct/edit/{id}',[ServiceProductController::class,'edit'])->name('admin.manage.serviceproduct.edit');
+    Route::post('/admin/serviceproduct/edit',[ServiceProductController::class,'editprocess'])->name('admin.serviceproduct.editprocess');
+   
 });
-
-
 
 //----->>>>
 
+//Customer Order Section
+
+Route::get('/Order', [PlaceOrderController::class,'index'])->name('order.index');
+
+//----->>>>
 
 Route::get('/Gallery', [GalleryController::class, 'index'])->name('gallery.index');
 

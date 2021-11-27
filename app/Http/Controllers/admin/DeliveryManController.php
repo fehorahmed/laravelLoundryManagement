@@ -12,10 +12,8 @@ class DeliveryManController extends Controller
 {
     public function index(){
         $result['data']= DeliveryMan::all();
-
-
         //return $result;
-        return view('admin.deliveryMan',$result);
+        return view('admin.deliveryMan');
     }
     public function deliveryManDatatable()
     {

@@ -64,7 +64,7 @@
                                  <a class="nav-link" href="#">Pricing</a>
                              </li>
                              <li class="nav-item">
-                                 <a class="nav-link" href="#">Blog</a>
+                                 <a class="nav-link" href="{{route('order.index')}}">Place Order</a>
                              </li>
                              <li class="nav-item">
                                  <a class="nav-link" href="{{route('gallery.index')}}">Gallery</a>
