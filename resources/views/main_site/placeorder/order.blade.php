@@ -10,15 +10,15 @@
 
                 <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
 
-                    <form action="" method="post" style="width: 200rem;" mb-3>
+                    <form action="route('order.store')" method="post" style="width: 200rem;" mb-3>
                         @csrf
 
                         <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Place An Order</h3>
 
                         <div class="form-outline mb-4">
-                            <label class="form-label" for="productname">Product Name</label>
+                            <label class="form-label" for="productid">Product Name</label>
 
-                            <select class="form-select" name="productname" id="productname" aria-label="Default select example">
+                            <select class="form-select" name="productid" id="productid" aria-label="Default select example">
                                 <option value="" >Open this select menu</option>
                                 @foreach($products as $product)
                                 <option value="{{$product->id.'-'.$product->price}}">{{$product->name}}</option>
@@ -90,9 +90,9 @@
 $(document).ready(function(){
    
     
-    $("#productname").change(function(){
-        var selectedName = $(this).val();
-        var arr= selectedName.split('-');
+    $("#productid").change(function(){
+        var selectedid = $(this).val();
+        var arr= selectedid.split('-');
        // alert("You have selected the country - " + arr);
         $('#totalprice').val(arr['1']);
     });

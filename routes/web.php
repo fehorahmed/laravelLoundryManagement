@@ -60,6 +60,8 @@ Route::get('/Logout', [UserLoginController::class, 'logout'])->name('user.logout
 Route::get('/User/profile', [UserLoginController::class, 'profile'])->name('user.profile')->middleware('userMiddleware');
 
 Route::get('/Order', [PlaceOrderController::class,'index'])->name('order.index')->middleware('userMiddleware');
+Route::get('orderproces',[PlaceOrderController::class, 'store'])->name('order.store');
+
 
 // userloginMiddleware For redirect profile, if user login.
 Route::get('/Login', [UserLoginController::class, 'index'])->name('userLogin.index')->middleware('userloginMiddleware');

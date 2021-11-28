@@ -15,7 +15,14 @@ class PlaceOrderController extends Controller
         
         return view('main_site.placeorder.order',$result);
     }
-    
+    public function store(Request $request){
+        $request->post('productid');
+        
+        $request->validate([
+            'productname'=>''
+        ]);
+
+    }
 
    
 }
