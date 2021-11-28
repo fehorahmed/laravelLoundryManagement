@@ -53,9 +53,7 @@
                              <li class="nav-item">
                                  <a class="nav-link" href="#">About us</a>
                              </li>
-                             <li class="nav-item">
-                                 <a class="nav-link" href="#">Dry Cleaning</a>
-                             </li>
+                        
                              <li class="nav-item">
                                  <a class="nav-link" href="#">Laundry Services </a>
                              </li>
@@ -63,9 +61,7 @@
                              <li class="nav-item">
                                  <a class="nav-link" href="#">Pricing</a>
                              </li>
-                             <li class="nav-item">
-                                 <a class="nav-link" href="{{route('order.index')}}">Place Order</a>
-                             </li>
+                           
                              <li class="nav-item">
                                  <a class="nav-link" href="{{route('gallery.index')}}">Gallery</a>
                              </li>
@@ -73,7 +69,14 @@
                                  <a class="nav-link" href="{{route('contact.index')}}">Contact us</a>
                              </li>
 
+                             <li class="nav-item">
+                                 <a class="nav-link" href="{{route('order.index')}}">Place Order</a>
+                             </li>
+                             
                             @if (session()->get('user_login')== true)
+                            <li class="nav-item">
+                                 <a class="nav-link" href="{{route('view.order')}}">View Order</a>
+                             </li>
                             <li class="nav-item">
                                  <a class="nav-link" href="{{route('user.profile')}}">Profile</a>
                              </li>

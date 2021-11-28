@@ -15,9 +15,10 @@ class CreatePlaceOrdersTable extends Migration
     {
         Schema::create('place_orders', function (Blueprint $table) {
             $table->id();
-            $table->string('productid');
+            $table->string('productname');
+            $table->integer('productid');
             $table->integer('quantity');
-            $table->integer('totalprice');
+            $table->integer('price');
             $table->integer('customerid');
             $table->string('status');
             $table->timestamps();

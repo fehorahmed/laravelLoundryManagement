@@ -7,11 +7,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\ContactUsController;
+use App\Http\Controllers\DeliveryManSelfController;
 use App\Http\Controllers\PlaceOrderController;
 use App\Http\Controllers\UserLoginController;
 use App\Http\Controllers\UserRegisterController;
-
-
 
 Route::get('/', [HomeController::class, 'index'])->name('Home.index');
 
@@ -60,8 +59,9 @@ Route::get('/Logout', [UserLoginController::class, 'logout'])->name('user.logout
 Route::get('/User/profile', [UserLoginController::class, 'profile'])->name('user.profile')->middleware('userMiddleware');
 
 Route::get('/Order', [PlaceOrderController::class,'index'])->name('order.index')->middleware('userMiddleware');
-Route::get('orderproces',[PlaceOrderController::class, 'store'])->name('order.store');
+Route::post('/orderproces',[PlaceOrderController::class, 'store'])->name('order.store');
 
+Route::get('/viewOrder',[PlaceOrderController::class,'vieworder'])->name('view.order')->middleware('userMiddleware');
 
 // userloginMiddleware For redirect profile, if user login.
 Route::get('/Login', [UserLoginController::class, 'index'])->name('userLogin.index')->middleware('userloginMiddleware');
@@ -70,3 +70,14 @@ Route::post('/Login', [UserLoginController::class, 'auth'])->name('userLogin.aut
 Route::get('/SignUp', [UserRegisterController::class, 'index'])->name('userRegister.index');
 
 Route::post('/SignUp', [UserRegisterController::class, 'store'])->name('userRegister.store');
+Route::get('/useredit', [UserRegisterController::class, 'useredit'])->name('user.edit');
+Route::post('/usereditprocess', [UserRegisterController::class, 'usereditprocess'])->name('useredit.process');
+
+
+//Delivery Man Options
+
+Route::get('/delivery/login',[DeliveryManSelfController::class,'index'])->name('deliveryman.index');
+Route::post('/delivery/login/process',[DeliveryManSelfController::class,'login'])->name('deliveryman.login');
+
+Route::get('/delivery/home',[DeliveryManSelfController::class,'home'])->name('deliveryman.home');
+

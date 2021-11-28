@@ -48,4 +48,35 @@ class UserRegisterController extends Controller
         return redirect()->route('Home.index');
         
     }
+    public function useredit(){
+        $userid=session('user_id');
+        $result['data']=UserRegister::find($userid);
+        
+        return view('main_site.useredit',$result);
+    }
+
+
+    public function usereditprocess(Request $request){
+        $request->validate([
+            'name'=>'required|min:3',
+            'address'=>'required',
+        ]);
+
+        $model= UserRegister::find(session('user_id'));
+        $model->name=$request->post('name');
+        $model->address=$request->post('address');
+        $model->update();
+
+        session()->forget('user_id');
+        session()->forget('user_login');
+        session()->forget('user_name');
+        session()->forget('user_email');
+        session()->forget('user_phone');
+        session()->forget('user_address');
+
+        return redirect()->route('userLogin.index')->with('message','Your Profile Updated. Please Login again.');
+       
+    }
+
+
 }

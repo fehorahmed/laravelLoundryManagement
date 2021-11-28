@@ -55,7 +55,8 @@
 
         </table>
 
-        <button class='btn btn-md btn-primary'> Edit </button>
+        
+        <a class="btn btn-primary" href="{{route('user.edit')}}">Edit</a>
     </div>
 
 </div>
