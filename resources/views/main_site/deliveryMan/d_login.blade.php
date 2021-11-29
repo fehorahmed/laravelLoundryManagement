@@ -34,7 +34,7 @@
                                     </div>
                                     @enderror
                                     <div class="form-outline form-white mb-4">
-                                        <input type="email" id="typeEmailX" name="email" class="form-control form-control-lg" />
+                                        <input type="email" value="{{old('email')}}" id="typeEmailX" name="email" class="form-control form-control-lg" />
                                         <label class="form-label" for="typeEmailX">Email</label>
                                     </div>
 

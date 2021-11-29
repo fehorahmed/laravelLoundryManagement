@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\DeliveryManController;
 use App\Http\Controllers\admin\ServiceProductController;
+use App\Http\Controllers\admin\ViewOrderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\GalleryController;
@@ -37,7 +38,14 @@ Route::group(['middleware' => 'adminmiddleware'], function () {
     Route::post('/admin/serviceproduct/manage',[ServiceProductController::class,'store'])->name('admin.manage.serviceproduct.store');
     Route::get('/admin/serviceproduct/edit/{id}',[ServiceProductController::class,'edit'])->name('admin.manage.serviceproduct.edit');
     Route::post('/admin/serviceproduct/edit',[ServiceProductController::class,'editprocess'])->name('admin.serviceproduct.editprocess');
-   
+    
+    //ORDER VIEW AND ASSIGN DELIVERY MAN   
+    Route::get('/admin/orderview',[ViewOrderController::class,'index'])->name('admin.orderview');
+    Route::get('/admin/orderview/manage/{id}',[ViewOrderController::class,'adddeliveryman'])->name('admin.add.deliveryman');
+    Route::post('/admin/orderview/manage',[ViewOrderController::class,'store'])->name('admin.add.deliveryman.store');
+    Route::get('/admin/orderview/edit/{id}',[ViewOrderController::class,'edit'])->name('admin.add.deliveryman.edit');
+    Route::post('/admin/orderview/edit',[ViewOrderController::class,'editprocess'])->name('admin.add.deliveryman.editprocess');
+    
 });
 
 //----->>>>
@@ -78,6 +86,7 @@ Route::post('/usereditprocess', [UserRegisterController::class, 'usereditprocess
 
 Route::get('/delivery/login',[DeliveryManSelfController::class,'index'])->name('deliveryman.index');
 Route::post('/delivery/login/process',[DeliveryManSelfController::class,'login'])->name('deliveryman.login');
+Route::get('/delivery/logout',[DeliveryManSelfController::class,'logout'])->name('delivery.logout');
 
 Route::get('/delivery/home',[DeliveryManSelfController::class,'home'])->name('deliveryman.home');
 

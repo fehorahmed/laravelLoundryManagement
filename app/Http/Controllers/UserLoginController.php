@@ -34,12 +34,11 @@ class UserLoginController extends Controller
                 $request->session()->put("user_address",$result->address);            
                 return redirect('/');
             }else{
-                Session::flash('message','Incorrect password!');
-                return redirect()->route('userLogin.index');
+               
+                return redirect()->back()->with('message','Incorrect password!');
             }
         }else{
-            Session::flash('message','Email not register yet !');
-            return redirect()->route('userLogin.index');
+            return redirect()->back()->with('message','Email not register yet !');
         }         
     }
 

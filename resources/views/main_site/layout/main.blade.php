@@ -69,10 +69,22 @@
                                  <a class="nav-link" href="{{route('contact.index')}}">Contact us</a>
                              </li>
 
-                             <li class="nav-item">
+                            
+                             
+
+                            @if(session()->has('delivery_login'))
+                            <li class="nav-item">
+                                 <a class="nav-link" href="{{route('deliveryman.home')}}">View Orders</a>
+                             </li>
+                            <li class="nav-item">
+                                 <a class="nav-link" href="{{route('delivery.logout')}}">Log Out</a>
+                             </li>
+                            @else
+
+                            <li class="nav-item">
                                  <a class="nav-link" href="{{route('order.index')}}">Place Order</a>
                              </li>
-                             
+
                             @if (session()->get('user_login')== true)
                             <li class="nav-item">
                                  <a class="nav-link" href="{{route('view.order')}}">View Order</a>
@@ -96,7 +108,7 @@
 
                             
 
-                           
+                           @endif
 
                          </ul>
                          <form class="d-flex">

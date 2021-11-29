@@ -40,6 +40,7 @@ class PlaceOrderController extends Controller
         $model->quantity=$quantity;
         $model->price=$price;
         $model->customerid=$customerid;
+        $model->deliverymanid=0;
         $model->status=0;
         $model->save();
 

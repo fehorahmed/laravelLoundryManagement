@@ -67,6 +67,14 @@
                         </a>
                     </li>
                     
+                    <li class="side-nav-item">
+                        <a href="{{route('admin.orderview')}}" class="side-nav-link">
+                            <i class="uil-calender"></i>
+                            <span>Order View & Assign Delivery Man </span>
+                        </a>
+                    </li>
+
+                    
 
                     <li class="side-nav-item">
                         <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
