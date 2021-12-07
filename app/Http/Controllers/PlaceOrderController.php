@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DeliveryMan;
 use App\Models\PlaceOrder;
 use App\Models\User;
 use App\Models\UserRegister;
@@ -51,7 +52,10 @@ class PlaceOrderController extends Controller
     public function vieworder(){
         $userid=session('user_id');
         $result['data']=PlaceOrder::where('customerid','=',$userid)->get();
-        
+
+       
+        $result['deliveryman']=DeliveryMan::all();
+       // return $result['deliveryman'];
         return view('main_site.placeorder.vieworder',$result);
     }
 

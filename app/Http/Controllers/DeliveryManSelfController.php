@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\DeliveryMan;
+use App\Models\PlaceOrder;
+use App\Models\UserRegister;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
@@ -50,8 +52,26 @@ class DeliveryManSelfController extends Controller
 
     public function home()
     {
-        return view('main_site.deliveryMan.d_home');
+        $deliverymanid=session('delivery_id');
+        $result['data']= PlaceOrder::where('deliverymanid','=', $deliverymanid)->get();
+        $result['customer']=UserRegister::all();
+       // return $result['customer'];
+        return view('main_site.deliveryMan.d_home',$result);
     }
+
+
+    public function recived_by_d($id){
+
+        $model = PlaceOrder::find($id);
+        $model->status = 2;
+        $model->update();
+
+        return redirect()->back()->with('message','You received the order.');
+
+    }
+
+
+
 
     public function logout()
     {

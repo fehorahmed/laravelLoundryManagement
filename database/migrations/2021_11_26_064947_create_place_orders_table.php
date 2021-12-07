@@ -20,7 +20,8 @@ class CreatePlaceOrdersTable extends Migration
             $table->integer('quantity');
             $table->integer('price');
             $table->integer('customerid');
-            $table->integer('deliverymanid');
+            $table->integer('deliverymanid')->nullable();
+            $table->integer('adminid')->nullable();
             $table->string('status');
             $table->timestamps();
         });

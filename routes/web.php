@@ -43,6 +43,17 @@ Route::group(['middleware' => 'adminmiddleware'], function () {
     Route::get('/admin/orderview',[ViewOrderController::class,'index'])->name('admin.orderview');
     Route::get('/admin/orderview/manage/{id}',[ViewOrderController::class,'adddeliveryman'])->name('admin.add.deliveryman');
     Route::post('/admin/orderview/manage',[ViewOrderController::class,'store'])->name('admin.add.deliveryman.store');
+
+    //VIEW WITH DELIVERY MAN
+    Route::get('/admin/orderview_with_dm',[ViewOrderController::class,'view_with_dm'])->name('admin.orderview_with_dm');
+    Route::get('/admin/orderview_with_dm/manage/{id}',[ViewOrderController::class,'edit_deliveryman'])->name('admin.edit.deliveryman_with_dm');
+    Route::post('/admin/orderview_with_dm/manage',[ViewOrderController::class,'edit_deliveryman_store'])->name('admin.edit.deliveryman.store');
+
+    Route::get('/admin/order_recived_from_dm',[ViewOrderController::class,'order_recived_from_dm'])->name('admin.order_recived_from_dm');
+    Route::get('/admin/recived_product_from_dm/{id}',[ViewOrderController::class,'recived_product_from_dm'])->name('admin.recived_product_from_dm');
+   
+
+    //askmalkmcmdc
     Route::get('/admin/orderview/edit/{id}',[ViewOrderController::class,'edit'])->name('admin.add.deliveryman.edit');
     Route::post('/admin/orderview/edit',[ViewOrderController::class,'editprocess'])->name('admin.add.deliveryman.editprocess');
     
@@ -69,6 +80,7 @@ Route::get('/User/profile', [UserLoginController::class, 'profile'])->name('user
 Route::get('/Order', [PlaceOrderController::class,'index'])->name('order.index')->middleware('userMiddleware');
 Route::post('/orderproces',[PlaceOrderController::class, 'store'])->name('order.store');
 
+//CUSTOMER VIEW ORDER
 Route::get('/viewOrder',[PlaceOrderController::class,'vieworder'])->name('view.order')->middleware('userMiddleware');
 
 // userloginMiddleware For redirect profile, if user login.
@@ -89,4 +101,5 @@ Route::post('/delivery/login/process',[DeliveryManSelfController::class,'login']
 Route::get('/delivery/logout',[DeliveryManSelfController::class,'logout'])->name('delivery.logout');
 
 Route::get('/delivery/home',[DeliveryManSelfController::class,'home'])->name('deliveryman.home');
+Route::get('/delivery/recived_by_d/{id}',[DeliveryManSelfController::class,'recived_by_d'])->name('recived_by_d');
 

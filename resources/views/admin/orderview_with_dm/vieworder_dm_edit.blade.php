@@ -36,46 +36,70 @@
         <h5 class="card-header">Edit Page</h5>
         <div class="row">
             <div class="col-3 offset-9 ">
-                <a href="{{ route('admin.deliveryman') }}"><button class="btn btn-primary">Back</button></a>
+                <a href="{{ route('admin.orderview_with_dm') }}"><button class="btn btn-primary">Back</button></a>
             </div>
         </div>
 
         <div class="card-body">
             <div class="row">
                 <div class="col-12 col-md-6">
-                    <form action="{{route('admin.serviceproduct.editprocess')}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('admin.edit.deliveryman.store')}}" method="POST" enctype="multipart/form-data">
                         @csrf
+
+                        <div class="mb-3">
+                            <label for="customerid" class="form-label">Customer Name</label>
+                            <input type="text" readonly id="customerid" class="form-control" value="{{$customer[0]->name}}" name="customerid">
+                        </div>
+                        @error('customerid')
+                        <div>
+                            <span class='text-danger'>{{$message}}</span>
+                        </div>
+                        @enderror
+
                         <div class="mb-3">
                             <label for="name" class="form-label">Product Name</label>
-                            <input type="text" id="name" class="form-control" value="{{$data[0]->name}}" name="name">
+                            <input type="text" readonly id="name" class="form-control" value="{{$data[0]->productname}}" name="name">
                         </div>
                         @error('name')
                         <div>
                             <span class='text-danger'>{{$message}}</span>
                         </div>
                         @enderror
-                        
+
                         <div class="mb-3">
                             <label for="price" class="form-label">Price</label>
-                            <input type="number" id="price" value="{{$data[0]->price}}" class="form-control" name="price">
+                            <input type="number" readonly id="price" value="{{$data[0]->price}}" class="form-control" name="price">
                         </div>
                         @error('price')
                         <div>
                             <span class='text-danger'>{{$message}}</span>
                         </div>
                         @enderror
-                        
+
                         <div class="mb-3">
-                            <label for="Status" class="form-label">Status</label>
-                            <input type="number" id="Status" value="{{$data[0]->status}}" class="form-control" name="status">
+                            <label for="quantity" class="form-label">Quantity</label>
+                            <input type="text" readonly id="quantity" class="form-control" value="{{$data[0]->quantity}}" name="quantity">
                         </div>
-                        @error('status')
+                        <div class="mb-3">
+                            <label for="deliveryman" class="form-label">Add Delivery Man</label>
+                            <select class="form-select" name="deliverymanid" id="deliverymanid">
+                                @foreach($deliveryman as $deliverymans)
+                                @if($data[0]->deliverymanid == $deliverymans->id)
+                                <option selected value="{{$deliverymans->id}}">{{$deliverymans->name}}</option>
+                                @else
+
+                                <option value="{{$deliverymans->id}}">{{$deliverymans->name}}</option>
+                                @endif
+                                @endforeach
+                            </select>
+                        </div>
+                        @error('deliverymanid')
                         <div>
-                            <span class='text-danger'>Status must be 1 or 0 . "1 for active, 0 for inactive"</span>
+                        <span class='text-danger'>{{$message}}</span>
                         </div>
                         @enderror
 
-                        <input type="hidden" name="id" value="{{$data[0]->id}}">
+                        <input type="hidden" readonly name="id" value="{{$data[0]->id}}">
                         <button type="submit" class="btn btn-primary">Update</button>
                     </form>
                 </div>

@@ -12,29 +12,29 @@ class ViewOrderController extends Controller
 {
     public function index()
     {
-        $result['data'] = PlaceOrder::where('status','=',0)->get();
-        $result['customer']= UserRegister::all();
+        $result['data'] = PlaceOrder::where('status', '=', 0)->get();
+        $result['customer'] = UserRegister::all();
         //return $result;
-        return view('admin.orderview.vieworder',$result);
+        return view('admin.orderview.vieworder', $result);
     }
 
     public function adddeliveryman($id)
     {
-        
-        $result['data'] = PlaceOrder::where('id','=',$id)->get();
-        $customerid= $result['data'][0]->customerid;
-        $result['customer']=UserRegister::where('id','=',$customerid)->get();
-        $result['deliveryman']= DeliveryMan::all();
-       
-        return view('admin.orderview.vieworder_dm_add',$result);
+
+        $result['data'] = PlaceOrder::where('id', '=', $id)->get();
+        $customerid = $result['data'][0]->customerid;
+        $result['customer'] = UserRegister::where('id', '=', $customerid)->get();
+        $result['deliveryman'] = DeliveryMan::all();
+
+        return view('admin.orderview.vieworder_dm_add', $result);
     }
 
-    
+
     public function store(Request $request)
     {
 
         $request->validate([
-            
+
             'id' => 'required',
             'deliverymanid' => 'required|max:40',
             'status' => 'required|boolean|max:5',
@@ -51,35 +51,68 @@ class ViewOrderController extends Controller
 
         return redirect()->route('admin.orderview')->with('message', 'Delivery Man added..');
     }
+   
 
-    /*
-    public function edit($id)
+    public function view_with_dm()
     {
-        $result['data'] = ServiceProduct::where('id', '=', $id)->get();
-
-
-        return view('admin.serviceproduct.serviceProductEdit', $result);
+        $result['data'] = PlaceOrder::where('status', '=', 1)->get();
+        $result['customer'] = UserRegister::all();
+        $result['deliveryman'] = DeliveryMan::all();
+        //return $result;
+        return view('admin.orderview_with_dm.vieworder_with_dm', $result);
     }
 
-    public function editprocess(Request $request)
+    public function edit_deliveryman($id)
+    {
+
+        $result['data'] = PlaceOrder::where('id', '=', $id)->get();
+        $customerid = $result['data'][0]->customerid;
+        $result['customer'] = UserRegister::where('id', '=', $customerid)->get();
+        $result['deliveryman'] = DeliveryMan::all();
+
+        return view('admin\orderview_with_dm\vieworder_dm_edit', $result);
+    }
+
+    public function edit_deliveryman_store(Request $request)
     {
         $request->validate([
-            'id' => 'required',
-            'name' => 'required|max:40',
-            'price' => 'required|numeric',
-            'status' => 'required|boolean|max:5',
-        ]);
-        $id = $request->post('id');
-        $name = $request->post('name');
-        $price = $request->post('price');
-        $status = $request->post('status');
 
-        $model = ServiceProduct::find($id);
-        $model->name = $name;
-        $model->price = $price;
-        $model->status = $status;
+            'id' => 'required',
+            'deliverymanid' => 'required|max:40',
+        ]);
+
+        $id = $request->post('id');
+        $deliverymanid = $request->post('deliverymanid');
+        
+
+        $model = PlaceOrder::find($id);
+        $model->deliverymanid = $deliverymanid;
         $model->update();
-        return redirect()->route('admin.serviceproduct')->with('message', 'Service Product Updated..');
+
+        return redirect()->route('admin.orderview_with_dm')->with('message', 'Delivery Man Updated..');
     }
-    */
+
+
+    public function order_recived_from_dm(){
+        $result['data'] = PlaceOrder::where('status', '=', 2)
+        ->orWhere('status', '=', 3)
+        ->get();
+        $result['customer'] = UserRegister::all();
+        $result['deliveryman'] = DeliveryMan::all();
+        //return $result;
+        return view('admin.orderRecivedAndDelivery.order_recived_from_dm', $result);
+    }
+
+    public function recived_product_from_dm($id){
+
+        //Status 3 = shop receive the product.
+        $model = PlaceOrder::find($id);
+        $model->adminid = session('admin_id');
+        $model->status = 3;
+        $model->update();
+
+        return redirect()->back()->with('message','Product Recived BY '.session('admin_name'));
+    }
+
+  
 }

@@ -73,7 +73,21 @@
                             <span>Order View & Assign Delivery Man </span>
                         </a>
                     </li>
+                    <li class="side-nav-item">
+                        <a href="{{route('admin.orderview_with_dm')}}" class="side-nav-link">
+                            <i class="uil-calender"></i>
+                            <span>View with Assigned Delivery Man </span>
+                        </a>
+                    </li>
 
+                    <li class="side-nav-item">
+                        <a href="{{route('admin.order_recived_from_dm')}}" class="side-nav-link">
+                            <i class="uil-calender"></i>
+                            <span>Reciving Order from Delivery Man </span>
+                        </a>
+                    </li>
+
+                    
                     
 
                     <li class="side-nav-item">

@@ -39,6 +39,7 @@ class AdminController extends Controller
 
             if (Hash::check($password, $result->password)) {
 
+                $request->session()->put('admin_id', $result->id);
                 $request->session()->put('admin_name', $result->name);
                 $request->session()->put('admin_email', $result->email);
 

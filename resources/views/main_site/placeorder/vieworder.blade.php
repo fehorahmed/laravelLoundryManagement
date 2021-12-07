@@ -8,7 +8,7 @@
                 <div class="card">
                     <h3 class="card-header">Your Orders</h3>
                     <div class="card-body">
-                      
+
                         <table class="table table-striped table-hover table-bordered">
                             <thead>
                                 <tr>
@@ -19,7 +19,7 @@
                                     <th scope="col">Total Price</th>
                                     <th scope="col">Address</th>
                                     <th scope="col">Status</th>
-                                    
+
                                 </tr>
                             </thead>
                             <tbody>
@@ -33,18 +33,31 @@
                                     <th>{{session('user_address')}}</th>
                                     <th>
                                         @if($datas->status==0)
-                                    <button class="btn btn-primary">Processing</button>
-                                        @else
-                                        <button class="btn btn-primary">Test</button>
+                                        <button class="btn btn-primary">Processing. Please wait.</button>
+                                        @elseif($datas->status==1)
+                                        <button class="btn btn-primary">Delivery Man Assigned. <br> Please wait 30 minute.
+                                            <br>Name:
+                                            @foreach($deliveryman as $deliverymans)
+                                            @if($deliverymans->id == $datas->deliverymanid)
+                                            {{$deliverymans->name}}. Phone No. {{$deliverymans->phone}}
+
+                                            @endif
+
+                                            @endforeach
+                                        </button>
+                                        @elseif($datas->status==2)
+                                        <p class="alert alert-secondary">Your Product is <br> on the way to shop.</p>
+                                        @elseif($datas->status==3)
+                                        <p class="alert alert-primary">Your Product is ready <br> for wash in the shop.</p>
                                         @endif
-                                    
-                                
-                                </th>
-                                    
+
+
+                                    </th>
+
                                 </tr>
 
                                 @endforeach
-                                
+
                             </tbody>
                         </table>
                     </div>
