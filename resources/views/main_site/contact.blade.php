@@ -1,5 +1,5 @@
 @extends('main_site.layout.main')
-
+@section('active','active')
 @section('main_content')
 
 <div class="row">
@@ -51,7 +51,7 @@
 </div>
 	</div>
 </div>
-@stop    
+@stop
 
 
 

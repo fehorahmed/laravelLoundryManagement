@@ -1,5 +1,5 @@
 @extends('main_site.layout.main')
-
+@section('active','active')
 @section('main_content')
 <section class="vh-100">
     <div class="container-fluid">

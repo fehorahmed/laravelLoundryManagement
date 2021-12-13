@@ -1,14 +1,15 @@
 @extends('main_site.layout.main')
 
 @section('main_content')
-<section class="vh-100">
+<section class="">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <h3 class="card-header">Your Orders</h3>
-                    <div class="card-body">
 
+                    <div class="card-header">
+                       <h2>Your Orders</h2>
+                      </div>
                         <table class="table table-striped table-hover table-bordered">
                             <thead>
                                 <tr>
@@ -60,7 +61,7 @@
 
                             </tbody>
                         </table>
-                    </div>
+
                 </div>
 
             </div>

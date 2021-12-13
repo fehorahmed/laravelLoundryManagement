@@ -48,12 +48,12 @@
                          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll cus-ul"
                              style="--bs-scroll-height: 100px;">
                              <li class="nav-item">
-                                 <a class="nav-link active" aria-current="page" href="{{route('Home.index')}}">Home</a>
+                                 <a class="nav-link" aria-current="page" href="{{route('Home.index')}}">Home</a>
                              </li>
-                             <li class="nav-item">
+                             <li class="nav-item ">
                                  <a class="nav-link" href="#">About us</a>
                              </li>
-                        
+
                              <li class="nav-item">
                                  <a class="nav-link" href="#">Laundry Services </a>
                              </li>
@@ -61,7 +61,7 @@
                              <li class="nav-item">
                                  <a class="nav-link" href="#">Pricing</a>
                              </li>
-                           
+
                              <li class="nav-item">
                                  <a class="nav-link" href="{{route('gallery.index')}}">Gallery</a>
                              </li>
@@ -69,8 +69,8 @@
                                  <a class="nav-link" href="{{route('contact.index')}}">Contact us</a>
                              </li>
 
-                            
-                             
+
+
 
                             @if(session()->has('delivery_login'))
                             <li class="nav-item">
@@ -90,7 +90,7 @@
                                  <a class="nav-link" href="{{route('view.order')}}">View Order</a>
                              </li>
                             <li class="nav-item">
-                                 <a class="nav-link" href="{{route('user.profile')}}">Profile</a>
+                                 <a class="nav-link @yield('active')" href="{{route('user.profile')}}">Profile</a>
                              </li>
 
                              <li class="nav-item">
@@ -106,7 +106,7 @@
                              </li>
                             @endif
 
-                            
+
 
                            @endif
 

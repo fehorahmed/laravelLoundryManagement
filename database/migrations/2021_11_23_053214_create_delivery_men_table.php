@@ -19,7 +19,7 @@ class CreateDeliveryMenTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->integer('phone');
-            $table->integer('nidnumber');
+            $table->bigInteger('nidnumber');
             $table->string('address');
             $table->tinyInteger('status');
             $table->timestamps();

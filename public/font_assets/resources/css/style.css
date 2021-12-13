@@ -6,7 +6,7 @@
     margin: 0 auto;
     padding: 0;
     box-sizing: border-box;
-    
+
 }
 
 html{
@@ -14,7 +14,7 @@ html{
 }
 
 body {
-    
+
     font-family: 'Titillium Web', sans-serif;
     font-size: 1.8rem;
 }
@@ -44,7 +44,7 @@ a{
     background-color: white;
     padding: 1.3rem 1.5rem;
     border: .2rem solid blueviolet;
-    border-radius: 1.5rem;  
+    border-radius: 1.5rem;
 }
 
 
@@ -87,7 +87,7 @@ li{
     padding: 1rem;
     font-size: 1.4rem;
     display: inline-block;
-    
+
 }
 .top-nav i{
     color: blanchedalmond;
@@ -129,17 +129,17 @@ li{
 .header-cover{
     margin-top: 1rem;
     height: 54rem ;
-   
+
     background-position: center;
     position: relative;
 }
 
 .header-cover{
-    
+
    background: url(../img/cover-1.png);
    background-attachment: fixed;
    background-size: cover;
-   
+
 }
 
 .cover-text{
@@ -178,7 +178,7 @@ margin-left: 2.2rem;
 .rbtn:hover, .btn a:hover{
     color: white;
     background-color: blueviolet;
-    
+
 }
 
 /* =============== */
@@ -197,7 +197,7 @@ margin-left: 2.2rem;
 .heading{
     padding: 1.5rem 0rem;
     text-align: center;
-    
+
 }
 .work-box{
     background-color: #f1f1f1;
@@ -214,7 +214,7 @@ margin-left: 2.2rem;
     padding: 4rem;
     border: .1rem solid #c8dbe8;
     border-radius: 100%;
-    box-shadow: 0rem 0rem 2rem #c8dbe8;  
+    box-shadow: 0rem 0rem 2rem #c8dbe8;
 }
 
 
@@ -236,7 +236,7 @@ h3{
     text-align: center;
     box-shadow: 0rem 0rem .5rem violet;
     display: inline-block;
-    
+
 }
 
 /* =============== */
@@ -255,7 +255,7 @@ h3{
     background-attachment: fixed;
     background-size: cover;
     height: 100.12rem;
-    
+
 }
 .service h1{
     color: white;
@@ -308,8 +308,8 @@ h3{
     height: 15rem;
     background: url(../css/img/banner.png);
 
-    
-    
+
+
 }
 .banar-a,.banar-b{
     display: inline-flex;
@@ -326,14 +326,14 @@ h3{
 .banar-p{
     font-size: 3.5rem;
     font-weight: 100;
-    color: white;   
+    color: white;
     line-height: 3rem;
 }
 
 .banar span{
     font-size: 2rem;
     font-weight: 700;
-    
+
 }
 
 
@@ -356,10 +356,10 @@ h3{
 
 .c-25{
     font-size: 2.8rem;
-    color: cadetblue; 
+    color: cadetblue;
 }
 .c-p{
-    color: cadetblue; 
+    color: cadetblue;
     font-size: 1.2rem;
     font-weight: 100;
 }
@@ -375,7 +375,7 @@ h3{
     margin-left: 4rem;
     font-weight: 800;
     padding-bottom: 2rem;
-    
+
 }
 .right-c li{
 color: black;
@@ -413,7 +413,7 @@ display: list-item;
 }
 .testi-img{
     display:inline-flex;
-   
+
 }
 .testi-p{
     background: #f1f1f1;
@@ -489,5 +489,10 @@ display: list-item;
     background-position: right center;
     background-size: auto 100%;
   }
-  
- 
+  .profile{
+      padding: 2rem 0rem;
+  }
+.active{
+    background-color: black;
+
+}
