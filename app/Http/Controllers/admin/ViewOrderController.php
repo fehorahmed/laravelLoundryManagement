@@ -51,7 +51,7 @@ class ViewOrderController extends Controller
 
         return redirect()->route('admin.orderview')->with('message', 'Delivery Man added..');
     }
-   
+
 
     public function view_with_dm()
     {
@@ -83,7 +83,7 @@ class ViewOrderController extends Controller
 
         $id = $request->post('id');
         $deliverymanid = $request->post('deliverymanid');
-        
+
 
         $model = PlaceOrder::find($id);
         $model->deliverymanid = $deliverymanid;
@@ -96,6 +96,7 @@ class ViewOrderController extends Controller
     public function order_recived_from_dm(){
         $result['data'] = PlaceOrder::where('status', '=', 2)
         ->orWhere('status', '=', 3)
+        ->orWhere('status', '=', 4)
         ->get();
         $result['customer'] = UserRegister::all();
         $result['deliveryman'] = DeliveryMan::all();
@@ -114,5 +115,27 @@ class ViewOrderController extends Controller
         return redirect()->back()->with('message','Product Recived BY '.session('admin_name'));
     }
 
-  
+    public function assign_second_delivery_man(Request $request){
+        $request->validate([
+            'seconddeliverymanid'=>'required',
+            'id'=>'required'
+        ],
+        [
+            'seconddeliverymanid.required'=>'Delivery Man Should not Empty.'
+        ]
+    );
+    $randomNumber = random_int(10000, 99999);
+
+    $id = $request->post('id');
+    $seconddeliverymanid = $request->post('seconddeliverymanid');
+    $model = PlaceOrder::find($id);
+    $model->seconddeliverymanid= $seconddeliverymanid;
+    $model->status = 4;
+    $model->otp = $randomNumber;
+    $model->update();
+
+    return redirect()->back();
+    }
+
+
 }

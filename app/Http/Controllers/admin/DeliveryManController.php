@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\DeliveryMan;
+use App\Models\District;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\Facades\DataTables;
@@ -17,7 +18,7 @@ class DeliveryManController extends Controller
     }
     public function deliveryManDatatable()
     {
-        
+
         $query = DeliveryMan::query();
         return DataTables::eloquent($query)
         ->addIndexColumn()
@@ -31,12 +32,13 @@ class DeliveryManController extends Controller
         ->make(true);
     }
 
-    
+
 
 
 
     public function add(){
-        return view('admin.manageDeliveryMan');
+        $result['district']=District::all();
+        return view('admin.manageDeliveryMan',$result);
     }
 
     public function store(Request $request){
@@ -48,6 +50,7 @@ class DeliveryManController extends Controller
             'confirm_password'=>'required|same:password',
             'phone'=>'required|digits_between:11,15',
             'nidnumber'=>'required|digits_between:10,18',
+            'districtid'=>'required',
             'address'=>'required|max:150',
             'status'=>'required|boolean|max:5',
         ]);
@@ -57,26 +60,29 @@ class DeliveryManController extends Controller
         $password=Hash::make($request->post('password'));
         $phone=$request->post('phone');
         $nidnumber=$request->post('nidnumber');
+        $district_id=$request->post('districtid');
         $address=$request->post('address');
         $status=$request->post('status');
-        
+
         $model=new Deliveryman();
         $model->name=$name;
         $model->email=$email;
         $model->password=$password;
         $model->phone=$phone;
         $model->nidnumber=$nidnumber;
+        $model->district_id=$district_id;
         $model->address=$address;
         $model->status=$status;
         $model->save();
 
         return redirect()->route('admin.deliveryman')->with('message','Delivery man added..');
-        
+
     }
 
     public function edit($id){
         $result['data']=DeliveryMan::where('id','=',$id)->get();
-        
+        $result['district']=District::all();
+
 
         return view('admin.deliveryManEdit',$result);
     }
@@ -86,8 +92,9 @@ class DeliveryManController extends Controller
             'id'=>'required',
             'name'=>'required|max:40',
             'email'=>'required|email|max:255|unique:delivery_men,email,'.$request->post('id'),
-            'phone'=>'required|digits_between:11,15',
+            'phone'=>'required|digits_between:10,15',
             'nidnumber'=>'required|digits_between:10,18',
+            'address'=>'required',
             'address'=>'required|max:150',
             'status'=>'required|boolean|max:5',
         ]);
@@ -96,6 +103,7 @@ class DeliveryManController extends Controller
         $email=$request->post('email');
         $phone=$request->post('phone');
         $nidnumber=$request->post('nidnumber');
+        $district_id=$request->post('districtid');
         $address=$request->post('address');
         $status=$request->post('status');
 
@@ -104,11 +112,12 @@ class DeliveryManController extends Controller
         $model->email=$email;
         $model->phone=$phone;
         $model->nidnumber=$nidnumber;
+        $model->district_id=$district_id;
         $model->address=$address;
         $model->status=$status;
         $model->update();
         return redirect()->route('admin.deliveryman')->with('message','Delivery man Updated..');
-       
+
     }
 
 

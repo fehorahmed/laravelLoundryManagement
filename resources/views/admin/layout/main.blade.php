@@ -46,68 +46,96 @@
                                 <li>
                                     <a href="dashboard-analytics.html">Analytics</a>
                                 </li>
-                               
+
                             </ul>
                         </div>
                     </li>
+
+
 
                     <li class="side-nav-title side-nav-item">Delivery Control</li>
 
-                    <li class="side-nav-item">
-                        <a href="{{route('admin.deliveryman')}}" class="side-nav-link">
-                            <i class="uil-calender"></i>
-                            <span> Add Delivery Man </span>
-                        </a>
-                    </li>
+
+
+
+
+
 
                     <li class="side-nav-item">
-                        <a href="{{route('admin.serviceproduct')}}" class="side-nav-link">
-                            <i class="uil-calender"></i>
-                            <span> Add Service Product </span>
-                        </a>
-                    </li>
-                    
-                    <li class="side-nav-item">
-                        <a href="{{route('admin.orderview')}}" class="side-nav-link">
-                            <i class="uil-calender"></i>
-                            <span>Order View & Assign Delivery Man </span>
-                        </a>
-                    </li>
-                    <li class="side-nav-item">
-                        <a href="{{route('admin.orderview_with_dm')}}" class="side-nav-link">
-                            <i class="uil-calender"></i>
-                            <span>View with Assigned Delivery Man </span>
-                        </a>
-                    </li>
-
-                    <li class="side-nav-item">
-                        <a href="{{route('admin.order_recived_from_dm')}}" class="side-nav-link">
-                            <i class="uil-calender"></i>
-                            <span>Reciving Order from Delivery Man </span>
-                        </a>
-                    </li>
-
-                    
-                    
-
-                    <li class="side-nav-item">
-                        <a data-bs-toggle="collapse" href="#sidebarEcommerce" aria-expanded="false" aria-controls="sidebarEcommerce" class="side-nav-link">
+                        <a data-bs-toggle="collapse" href="#sidebarOrderAndDeliveryman" aria-expanded="false" aria-controls="sidebarOrderAndDeliveryman" class="side-nav-link">
                             <i class="uil-store"></i>
-                            <span> Ecommerce </span>
+                            <span> ORDER & DELIVERYMAN </span>
                             <span class="menu-arrow"></span>
                         </a>
-                        <div class="collapse" id="sidebarEcommerce">
+                        <div class="collapse" id="sidebarOrderAndDeliveryman">
                             <ul class="side-nav-second-level">
-                                <li>
+                                {{-- <li>
                                     <a href="apps-ecommerce-products.html">Products</a>
+                                </li> --}}
+
+                                <li>
+                                    <a href="{{route('admin.orderview')}}" >
+                                        <i class="uil-calender"></i>
+                                        <span>Order View & Assign Delivery Man </span>
+                                    </a>
                                 </li>
-                                
+                                <li>
+                                    <a href="{{route('admin.orderview_with_dm')}}" >
+                                        <i class="uil-calender"></i>
+                                        <span>View with Assigned Delivery Man </span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{route('admin.order_recived_from_dm')}}" >
+                                        <i class="uil-calender"></i>
+                                        <span>Reciving Order from Delivery Man </span>
+                                    </a>
+                                </li>
+
                             </ul>
                         </div>
                     </li>
 
-                 
-                    
+
+{{-- MASTER HERE --}}
+
+                    <li class="side-nav-item">
+                        <a data-bs-toggle="collapse" href="#sidebarMaster" aria-expanded="false" aria-controls="sidebarMaster" class="side-nav-link">
+                            <i class="uil-store"></i>
+                            <span> MASTER </span>
+                            <span class="menu-arrow"></span>
+                        </a>
+                        <div class="collapse" id="sidebarMaster">
+                            <ul class="side-nav-second-level">
+                                {{-- <li>
+                                    <a href="apps-ecommerce-products.html">Products</a>
+                                </li> --}}
+
+                                <li>
+                                    <a href="{{route('admin.district')}}" >
+                                        <i class="uil-calender"></i>
+                                        <span> Add District </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{route('admin.serviceproduct')}}" >
+                                        <i class="uil-calender"></i>
+                                        <span> Add Service Product </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{route('admin.deliveryman')}}">
+                                        <i class="uil-calender"></i>
+                                        <span> Add Delivery Man </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+
+
+
 
                     <li class="side-nav-title side-nav-item">Custom</li>
 
@@ -122,8 +150,8 @@
                                 <li>
                                     <a href="pages-profile.html">Profile</a>
                                 </li>
-                               
-                               
+
+
                                 <li class="side-nav-item">
                                     <a data-bs-toggle="collapse" href="#sidebarPagesAuth" aria-expanded="false" aria-controls="sidebarPagesAuth">
                                         <span> Authentication </span>
@@ -134,7 +162,7 @@
                                             <li>
                                                 <a href="pages-login.html">Login</a>
                                             </li>
-                                            
+
                                         </ul>
                                     </div>
                                 </li>
@@ -152,7 +180,7 @@
 
                 </ul>
 
-            
+
                 <!-- End Sidebar -->
 
                 <div class="clearfix"></div>

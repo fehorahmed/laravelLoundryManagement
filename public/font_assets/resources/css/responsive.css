@@ -9,13 +9,13 @@
 
 @media only screen and (max-width: 1024px) {
 
-    
+
 }
 
 @media only screen and (max-width: 992px) {
 
     header{
-        height: 15rem;
+        height: 17rem;
         padding: 1.5rem 0;
     }
     .logo-class{
@@ -24,11 +24,19 @@
     .logo{
         float: none;
         margin: 1rem 0;
-        
+
     }
     .top-nav{
         height: 6rem;
     }
+    .banar-p {
+        font-size: 2.5rem;
+
+    }
+    .banar span {
+        font-size: 1.5rem;
+    }
+
 
 }
 @media only screen and (max-width: 768px) {
@@ -37,7 +45,9 @@
         height: 16rem;
         padding: 1.5rem 0;
     }
-
+    .header-cover {
+        height: 28rem;
+    }
     .top-nav{
         float: none;
     }
@@ -47,6 +57,20 @@
     }
     .last-f{
         text-align: center;
+    }
+    .banar-a, .banar-b {
+
+        margin-left: 0rem;
+    }
+    .banar-a i, .banar-b i {
+        font-size: 3rem;
+        margin-right: 1.5rem;
+    }
+    .choose{
+        background: blueviolet;
+    }
+    .c-ul li i {
+        color: black;
     }
 }
 @media only screen and (max-width: 576px) {

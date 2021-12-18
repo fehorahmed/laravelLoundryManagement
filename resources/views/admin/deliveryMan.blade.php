@@ -53,7 +53,7 @@
       <table class="table table-striped" id="table">
         <thead>
           <tr>
-          
+
             <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
@@ -61,7 +61,7 @@
             <th scope="col">Action</th>
           </tr>
         </thead>
-      
+
       </table>
     </div>
   </div>
@@ -75,10 +75,10 @@
 
 @stop
 @section('script')
-     
+
 <script type="text/javascript">
   $(function () {
-    
+
     var table = $('#table').DataTable({
         processing: true,
         serverSide: true,
@@ -86,13 +86,13 @@
         columns: [
             {data: 'id', name: 'id'},
             {data: 'name', name: 'name'},
-          
+
             {data: 'email', name: 'email'},
             {data: 'phone', name: 'phone'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
     });
-    
+
   });
 </script>
 @endsection

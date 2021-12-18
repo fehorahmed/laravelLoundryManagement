@@ -50,6 +50,20 @@
                                         <p class="alert alert-secondary">Your Product is <br> on the way to shop.</p>
                                         @elseif($datas->status==3)
                                         <p class="alert alert-primary">Your Product is ready <br> for wash in the shop.</p>
+                                        @elseif($datas->status==4)
+                                        <button class="btn btn-primary">Delivery Man Assigned to your home <br> Please wait 30 minute.
+                                            <br>Name:
+                                            @foreach($deliveryman as $deliverymans)
+                                            @if($deliverymans->id == $datas->seconddeliverymanid)
+                                            {{$deliverymans->name}}. Phone No. {{$deliverymans->phone}} <br>
+                                            Your OTP: {{$datas->otp}}
+
+                                            @endif
+
+                                            @endforeach
+                                        </button>
+                                        @elseif($datas->status==10)
+                                        <p class="alert alert-info">You Recived your Product</p>
                                         @endif
 
 

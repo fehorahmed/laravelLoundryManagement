@@ -48,7 +48,7 @@
                          <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll cus-ul"
                              style="--bs-scroll-height: 100px;">
                              <li class="nav-item">
-                                 <a class="nav-link" aria-current="page" href="{{route('Home.index')}}">Home</a>
+                                 <a class="nav-link {{request()->routeIs('Home.index*') ? 'active' : '' }}" aria-current="page" href="{{route('Home.index')}}">Home</a>
                              </li>
                              <li class="nav-item ">
                                  <a class="nav-link" href="#">About us</a>
@@ -63,10 +63,10 @@
                              </li>
 
                              <li class="nav-item">
-                                 <a class="nav-link" href="{{route('gallery.index')}}">Gallery</a>
+                                 <a class="nav-link {{request()->routeIs('gallery.index*') ? 'active' : '' }}" href="{{route('gallery.index')}}">Gallery</a>
                              </li>
                              <li class="nav-item">
-                                 <a class="nav-link" href="{{route('contact.index')}}">Contact us</a>
+                                 <a class="nav-link {{request()->routeIs('contact.index*') ? 'active' : '' }}" href="{{route('contact.index')}}">Contact us</a>
                              </li>
 
 
@@ -74,7 +74,7 @@
 
                             @if(session()->has('delivery_login'))
                             <li class="nav-item">
-                                 <a class="nav-link" href="{{route('deliveryman.home')}}">View Orders</a>
+                                 <a class="nav-link {{request()->routeIs('deliveryman.home*') ? 'active' : '' }}" href="{{route('deliveryman.home')}}">View Orders</a>
                              </li>
                             <li class="nav-item">
                                  <a class="nav-link" href="{{route('delivery.logout')}}">Log Out</a>
@@ -82,15 +82,15 @@
                             @else
 
                             <li class="nav-item">
-                                 <a class="nav-link" href="{{route('order.index')}}">Place Order</a>
+                                 <a class="nav-link {{request()->routeIs('order.index*') ? 'active' : '' }}" href="{{route('order.index')}}">Place Order</a>
                              </li>
 
                             @if (session()->get('user_login')== true)
                             <li class="nav-item">
-                                 <a class="nav-link" href="{{route('view.order')}}">View Order</a>
+                                 <a class="nav-link {{request()->routeIs('view.order*') ? 'active' : '' }}" href="{{route('view.order')}}">View Order</a>
                              </li>
                             <li class="nav-item">
-                                 <a class="nav-link @yield('active')" href="{{route('user.profile')}}">Profile</a>
+                                 <a class="nav-link {{request()->routeIs('user.profile*') ? 'active' : '' }}" href="{{route('user.profile')}}">Profile</a>
                              </li>
 
                              <li class="nav-item">
@@ -98,11 +98,11 @@
                              </li>
                              @else
                              <li class="nav-item">
-                                 <a class="nav-link" href="{{route('userLogin.index')}}">Log In</a>
+                                 <a class="nav-link {{request()->routeIs('userLogin.index*') ? 'active' : '' }}" href="{{route('userLogin.index')}}">Log In</a>
                              </li>
 
                              <li class="nav-item">
-                                 <a class="nav-link" href="{{route('userRegister.index')}}">Sign Up</a>
+                                 <a class="nav-link {{request()->routeIs('userRegister.index*') ? 'active' : '' }}" href="{{route('userRegister.index')}}">Sign Up</a>
                              </li>
                             @endif
 

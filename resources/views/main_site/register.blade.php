@@ -1,19 +1,15 @@
 @extends('main_site.layout.main')
 @section('active','active')
 @section('main_content')
-<section class="vh-100">
-    <div class="container-fluid">
+<div class="pt-3">
+    <div class="container">
         <div class="row">
-            <div class="col-sm-6 text-black">
+            <div class="col-md-6 col-gl-6 col-sm-12 col-12 text-black">
 
+                <h2 class="fw-bold pt-10">Registration Form</h2>
 
-
-                <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
-
-                    <form action="{{route('userRegister.store')}}" method="post" style="width: 200rem;" mb-3>
+                    <form action="{{route('userRegister.store')}}" method="post">
                         @csrf
-
-                        <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Registration Form</h3>
 
                         <div class="form-outline mb-4">
                             <label class="form-label" for="name">Name</label>
@@ -49,6 +45,17 @@
 
                         </div>
 
+                        <div class="form-outline mb-4">
+                            <label for="district" class="form-label">District </label>
+                            <select name="districtid" class="form-select form-select-lg selectpicker countrypicker" id="districtid">
+                                <option value="">Select One <span class="caret"></span></option>
+
+                                @foreach ($district as $districts)
+                                <option value="{{$districts->id}}">{{$districts->name}}</option>
+                                @endforeach
+
+                            </select>
+                        </div>
                         <div class="form-outline mb-4">
                             <label class="form-label" for="address">Address</label>
                             <textarea class="form-control form-control-lg" name="address" id="address" cols="30"
@@ -91,11 +98,11 @@
 
                     </form>
 
-                </div>
+
 
             </div>
 
         </div>
     </div>
-</section>
+</div>
 @stop

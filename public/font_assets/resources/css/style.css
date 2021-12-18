@@ -191,8 +191,8 @@ margin-left: 2.2rem;
 /* =============== */
 
 .how-work{
-    height: 59.2rem;
     background: white;
+    padding-bottom: 5rem;
 }
 .heading{
     padding: 1.5rem 0rem;
@@ -249,12 +249,12 @@ h3{
 /* =============== */
 
 .service{
-    padding-top: 5rem;
     background:url('../css/img/Service-bg.png');
     background-position: top;
     background-attachment: fixed;
     background-size: cover;
-    height: 100.12rem;
+    padding-bottom: 5rem;
+
 
 }
 .service h1{
@@ -297,7 +297,6 @@ h3{
 
 .get-start{
     padding: 2rem 0rem;
-    height: 37rem;
     text-align: center;
 }
 .get-start h1{
@@ -344,8 +343,8 @@ h3{
 
 .choose{
     background: url('../css/img/choose-bg.png');
-    background-size: cover;
-    height: 52rem;
+    background-size: contain;
+
 }
 .left-c{
     padding-top: 8rem;
@@ -432,8 +431,7 @@ display: list-item;
 .footer{
  background: url('../css/img/footer-bg.png');
  background-size: cover;
- padding: 7rem 0rem;
- height: 46.6rem;
+ padding: 3rem 0rem;
  color: white;
 
 }
@@ -493,6 +491,7 @@ display: list-item;
       padding: 2rem 0rem;
   }
 .active{
-    background-color: black;
+    background-color: rgba(159, 14, 221, 0.671);
+    border-radius: 10%;
 
 }

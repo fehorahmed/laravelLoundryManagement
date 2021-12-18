@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\DeliveryManController;
+use App\Http\Controllers\admin\DistrictController;
 use App\Http\Controllers\admin\ServiceProductController;
 use App\Http\Controllers\admin\ViewOrderController;
 use Illuminate\Support\Facades\Route;
@@ -38,8 +39,17 @@ Route::group(['middleware' => 'adminmiddleware'], function () {
     Route::post('/admin/serviceproduct/manage',[ServiceProductController::class,'store'])->name('admin.manage.serviceproduct.store');
     Route::get('/admin/serviceproduct/edit/{id}',[ServiceProductController::class,'edit'])->name('admin.manage.serviceproduct.edit');
     Route::post('/admin/serviceproduct/edit',[ServiceProductController::class,'editprocess'])->name('admin.serviceproduct.editprocess');
-    
-    //ORDER VIEW AND ASSIGN DELIVERY MAN   
+
+  //DISTRICT SECTION
+  Route::get('/admin/district',[DistrictController::class,'index'])->name('admin.district');
+  Route::get('/admin/district/manage',[DistrictController::class,'add'])->name('admin.manage.district');
+  Route::post('/admin/district/manage',[DistrictController::class,'store'])->name('admin.manage.district.store');
+  Route::get('/admin/district/edit/{id}',[DistrictController::class,'edit'])->name('admin.manage.district.edit');
+  Route::post('/admin/district/edit',[DistrictController::class,'editprocess'])->name('admin.district.editprocess');
+  Route::get('/admin/district/delete/{id}',[DistrictController::class,'delete'])->name('admin.manage.district.delete');
+
+
+    //ORDER VIEW AND ASSIGN DELIVERY MAN
     Route::get('/admin/orderview',[ViewOrderController::class,'index'])->name('admin.orderview');
     Route::get('/admin/orderview/manage/{id}',[ViewOrderController::class,'adddeliveryman'])->name('admin.add.deliveryman');
     Route::post('/admin/orderview/manage',[ViewOrderController::class,'store'])->name('admin.add.deliveryman.store');
@@ -49,14 +59,20 @@ Route::group(['middleware' => 'adminmiddleware'], function () {
     Route::get('/admin/orderview_with_dm/manage/{id}',[ViewOrderController::class,'edit_deliveryman'])->name('admin.edit.deliveryman_with_dm');
     Route::post('/admin/orderview_with_dm/manage',[ViewOrderController::class,'edit_deliveryman_store'])->name('admin.edit.deliveryman.store');
 
+    //order_recived_from_dm
     Route::get('/admin/order_recived_from_dm',[ViewOrderController::class,'order_recived_from_dm'])->name('admin.order_recived_from_dm');
     Route::get('/admin/recived_product_from_dm/{id}',[ViewOrderController::class,'recived_product_from_dm'])->name('admin.recived_product_from_dm');
-   
+
+   //Assign Second Delivery Man
+    Route::post('/admin/assign_second_delivery_man',[ViewOrderController::class,'assign_second_delivery_man'])->name('admin.assign_second_delivery_man');
+
+
+//
 
     //askmalkmcmdc
     Route::get('/admin/orderview/edit/{id}',[ViewOrderController::class,'edit'])->name('admin.add.deliveryman.edit');
     Route::post('/admin/orderview/edit',[ViewOrderController::class,'editprocess'])->name('admin.add.deliveryman.editprocess');
-    
+
 });
 
 //----->>>>
@@ -103,3 +119,6 @@ Route::get('/delivery/logout',[DeliveryManSelfController::class,'logout'])->name
 Route::get('/delivery/home',[DeliveryManSelfController::class,'home'])->name('deliveryman.home');
 Route::get('/delivery/recived_by_d/{id}',[DeliveryManSelfController::class,'recived_by_d'])->name('recived_by_d');
 
+//OTP
+Route::get('/delivery/otp/view/{id}',[DeliveryManSelfController::class,'otpView'])->name('deliveryman.otpview');
+Route::post('/delivery/otp/process',[DeliveryManSelfController::class,'otpViewProcess'])->name('deliveryman.otpprocess');

@@ -64,10 +64,10 @@
                             <span class='text-danger'>{{$message}}</span>
                         </div>
                         @enderror
-                        
+
                         <div class="mb-3">
                             <label for="phone" class="form-label">Phone</label>
-                            <input type="number" id="phone" value="{{$data[0]->phone}}" class="form-control" name="phone">
+                            <input type="text" id="phone" value="{{$data[0]->phone}}" class="form-control" name="phone">
                         </div>
                         @error('phone')
                         <div>
@@ -83,6 +83,29 @@
                             <span class='text-danger'>{{$message}}</span>
                         </div>
                         @enderror
+
+                        <div class="mb-3">
+                            <label for="districtid" class="form-label">District</label>
+                            <select name="districtid" class="form-select form-select selectpicker countrypicker"
+                                id="districtid">
+                                <option value="">Select One <span class="caret"></span></option>
+
+                                    @foreach ($district as $districts)
+                                        @if ($data[0]->district_id == $districts->id)
+                                            <option selected value="{{ $districts->id }}">{{ $districts->name }}
+                                            </option>
+                                        @endif
+                                        <option value="{{ $districts->id }}">{{ $districts->name }}</option>
+                                    @endforeach
+                            </select>
+                        </div>
+                        @error('districtid')
+                            <div>
+                                <span class='text-danger'>{{ $message }}</span>
+                            </div>
+                        @enderror
+
+
                         <div class="mb-3">
                             <label for="address" class="form-label">Address</label>
                             <input type="text" class="form-control" id="address" value="{{$data[0]->address}}" name="address">

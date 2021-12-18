@@ -33,6 +33,7 @@ class DeliveryManSelfController extends Controller
                 session()->forget('user_name');
                 session()->forget('user_email');
                 session()->forget('user_phone');
+                session()->forget('user_district');
                 session()->forget('user_address');
 
                 $request->session()->put("delivery_login", true);
@@ -41,7 +42,7 @@ class DeliveryManSelfController extends Controller
                 $request->session()->put("delivery_phone", $result->phone);
                 $request->session()->put("delivery_name", $result->name);
 
-                return redirect()->route('deliveryman.home')->with('message', 'Welcome ' . $result->name);
+                return redirect()->route('deliveryman.home');
             } else {
                 return redirect()->back()->with('message', 'Password Incorrect');
             }
@@ -53,7 +54,8 @@ class DeliveryManSelfController extends Controller
     public function home()
     {
         $deliverymanid=session('delivery_id');
-        $result['data']= PlaceOrder::where('deliverymanid','=', $deliverymanid)->get();
+        $result['data']= PlaceOrder::where('deliverymanid','=', $deliverymanid)->orWhere('seconddeliverymanid','=', $deliverymanid)
+        ->get();
         $result['customer']=UserRegister::all();
        // return $result['customer'];
         return view('main_site.deliveryMan.d_home',$result);
@@ -71,6 +73,32 @@ class DeliveryManSelfController extends Controller
     }
 
 
+    public function otpView($id){
+        $result['data']=PlaceOrder::find($id);
+
+        return view('main_site.deliveryMan.otp',$result);
+    }
+
+    public function otpViewProcess(Request $request){
+        $request->validate([
+            'otp' => 'required',
+            'id' => 'required',
+        ]);
+        $id=$request->post('id');
+        $otp=$request->post('otp');
+        $result=PlaceOrder::find($id);
+        if($result->otp == $otp){
+            $result->status=10;
+            $result->update();
+
+            return redirect()->route('deliveryman.home')->with('message', 'OTP Submitted Success..');
+        }else{
+            return redirect()->back()->with('message','OTP is Not Correct.');
+        }
+
+
+
+    }
 
 
     public function logout()

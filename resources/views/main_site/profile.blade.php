@@ -44,13 +44,12 @@
                             {{session()->get('user_phone')}}
                         </td>
                     </tr>
-
                     <tr>
                         <th>
                             Address:
                         </th>
                         <td>
-                            {{session()->get('user_address')}}
+                           District:{{session()->get('user_district')}}, {{session()->get('user_address')}}
                         </td>
                     </tr>
 
