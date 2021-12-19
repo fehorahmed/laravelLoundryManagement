@@ -46,6 +46,12 @@ class Kernel extends HttpKernel
         ],
         'adminmiddleware'=>[
             \App\Http\Middleware\AdminMiddleware::class,
+        ],
+        'deliverymanself'=>[
+            \App\Http\Middleware\DeliveryManSelfMiddleware::class,
+        ],
+        'userMiddleware'=>[
+            \App\Http\Middleware\UserMiddleware::class,
         ]
     ];
 
@@ -57,7 +63,6 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'userMiddleware' => \App\Http\Middleware\UserMiddleware::class,
         'userloginMiddleware' => \App\Http\Middleware\UserLoginMiddleware::class,
         'adminloginMiddleware' => \App\Http\Middleware\adminLoginMiddleware::class,
         'auth' => \App\Http\Middleware\Authenticate::class,

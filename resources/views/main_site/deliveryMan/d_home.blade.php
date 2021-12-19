@@ -8,7 +8,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-10 col-sm-12 col-12">
-                    <p class="btn btn-info btn-lg">Welcome {{ session('delivery_name') }}</p>
+                    <p class="btn btn-info btn-lg mt-1">Welcome {{ session('delivery_name') }}</p>
+                    <a href="{{route('deliveryman.history')}}"><p class="btn btn-primary float-end mt-1">History Page</p></a>
 
                     @if (session('message'))
                         <p class="alert alert-info">{{ session('message') }}</p>
@@ -27,7 +28,7 @@
                             <th>Action</th>
                         </thead>
                         <tbody>
-                            @foreach ($data as $datas)
+                            @foreach ($rdata as $datas)
                                 @if ($datas->status < 3)
 
 
@@ -91,8 +92,8 @@
                             <th>Action</th>
                         </thead>
                         <tbody>
-                            @foreach ($data as $datas)
-                                @if ($datas->status > 3 && $datas->seconddeliverymanid == session('delivery_id'))
+                            @foreach ($ddata as $datas)
+                                @if ($datas->status > 3 && $datas->status < 10 && $datas->seconddeliverymanid == session('delivery_id'))
                                     <tr>
                                         <td>{{ $datas->id }}</td>
                                         <td>{{ $datas->productname }}</td>

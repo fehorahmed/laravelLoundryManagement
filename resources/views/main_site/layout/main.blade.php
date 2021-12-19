@@ -150,8 +150,8 @@
                      <li><a href="">Dry Cleaning</a></li>
                      <li><a href="">Laundry Service</a></li>
                      <li><a href="">Sanitizing Services</a></li>
-                     <li><a href="">Pricing</a></li>
-                     <li><a href="">Blog</a></li>
+                     <li><a href="{{route('adminlogin.index')}}">ADMIN LOGIN</a></li>
+                     <li><a href="{{route('deliveryman.index')}}">DELIVERY MAN LOGIN</a></li>
                  </ul>
              </div>
              <div class="col-md-3 col-sm-6">

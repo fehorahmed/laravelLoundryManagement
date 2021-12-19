@@ -54,8 +54,8 @@ class DeliveryManSelfController extends Controller
     public function home()
     {
         $deliverymanid=session('delivery_id');
-        $result['data']= PlaceOrder::where('deliverymanid','=', $deliverymanid)->orWhere('seconddeliverymanid','=', $deliverymanid)
-        ->get();
+        $result['rdata']= PlaceOrder::where('deliverymanid','=', $deliverymanid)->get();
+        $result['ddata']= PlaceOrder::where('seconddeliverymanid','=', $deliverymanid)->get();
         $result['customer']=UserRegister::all();
        // return $result['customer'];
         return view('main_site.deliveryMan.d_home',$result);
@@ -110,5 +110,14 @@ class DeliveryManSelfController extends Controller
         session()->forget("delivery_name");
 
         return redirect()->route('Home.index');
+    }
+
+    public function history(){
+        $result['customer']=UserRegister::all();
+        $id=session('delivery_id');
+        $result['data']=PlaceOrder::where(['deliverymanid'=>$id])
+        ->orWhere(['seconddeliverymanid'=>$id])
+        ->get();
+        return view('main_site.deliveryMan.d_history',$result);
     }
 }
