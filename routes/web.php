@@ -68,7 +68,8 @@ Route::group(['middleware' => 'adminmiddleware'], function () {
     Route::post('/admin/assign_second_delivery_man', [ViewOrderController::class, 'assign_second_delivery_man'])->name('admin.assign_second_delivery_man');
 
 
-    //
+    //Contact Message
+    Route::get('admin/contact/message', [ContactUsController::class, 'showMessage'])->name('contact.message');
 
     //askmalkmcmdc
     Route::get('/admin/orderview/edit/{id}', [ViewOrderController::class, 'edit'])->name('admin.add.deliveryman.edit');
@@ -85,7 +86,7 @@ Route::group(['middleware' => 'adminmiddleware'], function () {
 Route::get('/Gallery', [GalleryController::class, 'index'])->name('gallery.index');
 
 Route::get('/ContactUs', [ContactUsController::class, 'index'])->name('contact.index');
-Route::post('/ContactUs', [ContactUsController::class, 'messageStore'])->name('contact.messageStore');
+Route::post('/ContactUs/store', [ContactUsController::class, 'messageStore'])->name('contact.messageStore');
 
 
 Route::get('/Logout', [UserLoginController::class, 'logout'])->name('user.logout');

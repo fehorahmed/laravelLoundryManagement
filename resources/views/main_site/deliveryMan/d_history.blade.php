@@ -16,7 +16,7 @@
                     @if (session('message'))
                         <p class="alert alert-info">{{ session('message') }}</p>
                     @endif
-                    <h1>Product Collect List</h1>
+                    <h1>Product Collect/Delivery History List</h1>
                     <table class="table table-striped">
                         <thead>
                             <th>ID</th>

@@ -15,7 +15,7 @@ class AdminController extends Controller
     {
         if(session()->has('email')){
             return redirect()->route('admin.dashboard');
-        }else{
+        }else{  
             return view('admin.adminlogin');
         }
 
