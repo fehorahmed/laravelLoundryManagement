@@ -102,6 +102,8 @@
 
 {{-- MASTER HERE --}}
 
+<li class="side-nav-title side-nav-item">Master</li>
+
                     <li class="side-nav-item">
                         <a data-bs-toggle="collapse" href="#sidebarMaster" aria-expanded="false" aria-controls="sidebarMaster" class="side-nav-link">
                             <i class="uil-store"></i>

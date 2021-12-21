@@ -13,6 +13,7 @@ use App\Http\Controllers\DeliveryManSelfController;
 use App\Http\Controllers\PlaceOrderController;
 use App\Http\Controllers\UserLoginController;
 use App\Http\Controllers\UserRegisterController;
+use App\Http\Controllers\PricingController;
 use Illuminate\Routing\RouteGroup;
 
 Route::get('/', [HomeController::class, 'index'])->name('Home.index');
@@ -82,7 +83,7 @@ Route::group(['middleware' => 'adminmiddleware'], function () {
 
 
 //----->>>>
-
+Route::get('/pricing',[PricingController::class,'index'])->name('pricing.index');
 Route::get('/Gallery', [GalleryController::class, 'index'])->name('gallery.index');
 
 Route::get('/ContactUs', [ContactUsController::class, 'index'])->name('contact.index');
